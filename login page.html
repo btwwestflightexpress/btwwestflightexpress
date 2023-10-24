@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login page.css">
+    <title>Track freight</title>
+</head>
+<body>
+    <header>
+        <div class="sub-header">
+            <p class="phone_number"><img src="./shipping css/images/Call.png" alt="" style="width: 20px; height: 20px;">+1219045683</p>
+            <p class="email">Ducatigloballogistics@gmail.com</p>
+            <p class="location">Cargo Hub bay | LD 32614, USA</p>
+        </div>
+                        <!-- end of sub-header -->
+        <div class="nav-bar">
+            <div class="logo">
+                <div class="first-logo">BTW</div>
+                westflightexpress
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login page.html" class="about">About us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="first-container">
+        <img src="./shipping css/images/logistics-transportation-container-cargo-ship-cargo-plane-with-working-crane-bridge-shipyard-sunrise-logistic-import-export-transport-industry-background-ai-generative 1.png" alt="" style="width: 100%; padding: 0; margin: 0; height: 50%rem; filter: blur(8px);">
+    </div>
+
+
+    <div class="login-form">
+        <div class="logo">
+            <div class="first-logo">BTW</div>
+            westflightexpress
+        </div>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username" style="color: rgb(58, 70, 94);">Username:</label>
+            <input type="text" id="username" name="username" required style="height: 1.7rem; width: 50%; letter-spacing: 0.2rem;" placeholder="Username"><br><br>
+    
+            <label for="password" style="color: rgb(58, 70, 94);">Password :</label>
+            <input type="password" id="password" name="password" required style="height: 1.7rem; width: 50%; letter-spacing: 0.2rem;" placeholder="Password" ><br><br>
+
+            <label for="tracking" style="color: rgb(58, 70, 94);">Tracking no.</label>
+            <input type="text" name="tracking" id="tracking"required style="height: 1.7rem; width: 50%; letter-spacing: 0.2rem;" placeholder="Tracking Number">
+            <br><br>
+            
+    
+            <button type="button" onclick="login()" style="padding: 0.6rem 1.5rem; border-style: none; letter-spacing: 0.2rem; color: rgb(58, 70, 94); border-radius: 5px;">Track</button>
+        </form>
+    
+        <p id="message"></p>
+    
+        <script>
+            function login() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                var tracking = document.getElementById("tracking").value;
+    
+                // Replace with your authentication logic
+                if (username === "papi" && password === "papi" && tracking === "2024") {
+                    window.location.href = "Freight page.html";
+                } else {
+                     <!-- window.location.href = "alert('Username or Password incorrect')"; -->
+                    alert('username or password incorrect')
+                }
+            }
+        </script>
+<br><br>
+        <p class="sub-text">Forgotten password? 
+            <button onclick="alert('please check your email')" style="border-style: none; background-color: none; background: none; color: rgb(58, 70, 94);">Retrieve password</button>
+            
+    </div>
+    <div class="divider"></div>
+
+    <footer>
+        <div class="footer1">
+            <p class="footer-header-text">
+                Partners
+            </p>
+            <p class="footer-regular-text">
+                  <a href="index.html">westflightexpress</a> <br><br>
+                  <a href="#">S-Prime</a><br><br>
+                  <a href="#">Alliance</a><br><br>
+                  <a href="#">APTtude</a>
+            </p>
+        </div>
+
+        <div class="footer1">
+            <p class="footer-header-text">
+                Freight Transports
+            </p>
+            <p class="footer-regular-text">
+                  <a href="index.html">westflightexpress</a> <br><br>
+                  <a href="#">S-Prime</a><br><br>
+                  <a href="#">Alliance</a><br><br>
+                  <a href="#">APTtude</a>
+            </p>
+        </div>
+
+        <div class="footer1">
+            <p class="footer-header-text">
+                About us
+            </p>
+            <p class="footer-regular-text">
+                  <a href="index.html">Company partners</a> <br><br>
+                  <a href="#">Staff</a><br><br>
+                  <a href="#">Our goal</a><br><br>
+                  <a href="#">conduct</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
