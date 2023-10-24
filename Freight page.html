@@ -120,39 +120,44 @@
             <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
             
             <script>
-                var map = L.map('map').setView([latitude, longitude], 13); // Set initial map view
-            
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                }).addTo(map);
-            
-                var pathCoordinates = [
-                    [startLatitude, startLongitude],
-                    [waypoint1Latitude, waypoint1Longitude],
-                    [waypoint2Latitude, waypoint2Longitude],
-                    // Add more waypoints
-                ];
-            
-                var customIcon = L.icon({
-                    iconUrl: 'your_marker_icon.png', // Replace with your marker icon URL
-                    iconSize: [32, 32], // Adjust icon size as needed
-                });
-            
-                var marker = L.marker([startLatitude, startLongitude], { icon: customIcon }).addTo(map);
-            
-                var index = 0;
-                var delayInMilliseconds = 2000; // Adjust the delay as needed (2 seconds in this example)
-            
-                function moveMarker() {
-                    marker.setLatLng(pathCoordinates[index]);
-                    index++;
-            
-                    if (index < pathCoordinates.length) {
-                        setTimeout(moveMarker, delayInMilliseconds);
-                    }
-                }
-            
-                moveMarker(); // Start the movement
+                const map = L.map('map').setView([51.505, -0.09], 13);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+	const marker = L.marker([51.5, -0.09]).addTo(map)
+		.bindPopup('Freight Current location').openPopup();
+
+	const circle = L.circle([51.508, -0.11], {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5,
+		radius: 500
+	}).addTo(map).bindPopup('Take off point.');
+
+	const polygon = L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	]).addTo(map).bindPopup('Delivery point.');
+
+
+	const popup = L.popup()
+		.setLatLng([51.513, -0.09])
+		.setContent('Freight Current location')
+		.openOn(map);
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
             </script>
         <br><br>
         <div class="end">

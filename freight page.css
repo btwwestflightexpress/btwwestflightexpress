@@ -24,7 +24,6 @@ body{
 
 p{
     color: #E7F7F9;
-    font-family: sans-serif;
 }
 @media  screen and (min-width: 350px) and (max-width: 750px){
     .sub-header .email{
@@ -37,7 +36,6 @@ p{
     display: flex;
     justify-content: space-between;
     padding: 1.7rem;
-    font-family: sans-serif;
 }
 
 .logo{
@@ -48,7 +46,6 @@ p{
 
 .logo .first-logo{
     color: #F06868;
-    font-family: fantasy;
 }
 
 .nav-list ul{
