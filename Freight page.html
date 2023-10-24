@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    #map { height: 400px; }
+</style>
     <title>Freight page</title>
     <!-- <script>
         alert('login successful')
@@ -110,7 +113,45 @@
                 </div>
                 <br><br>
             </div>
+            <div id="map"></div>
 
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+            
+            <script>
+                var map = L.map('map').setView([latitude, longitude], 13); // Set initial map view
+            
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+            
+                var pathCoordinates = [
+                    [startLatitude, startLongitude],
+                    [waypoint1Latitude, waypoint1Longitude],
+                    [waypoint2Latitude, waypoint2Longitude],
+                    // Add more waypoints
+                ];
+            
+                var customIcon = L.icon({
+                    iconUrl: 'your_marker_icon.png', // Replace with your marker icon URL
+                    iconSize: [32, 32], // Adjust icon size as needed
+                });
+            
+                var marker = L.marker([startLatitude, startLongitude], { icon: customIcon }).addTo(map);
+            
+                var index = 0;
+                var delayInMilliseconds = 2000; // Adjust the delay as needed (2 seconds in this example)
+            
+                function moveMarker() {
+                    marker.setLatLng(pathCoordinates[index]);
+                    index++;
+            
+                    if (index < pathCoordinates.length) {
+                        setTimeout(moveMarker, delayInMilliseconds);
+                    }
+                }
+            
+                moveMarker(); // Start the movement
+            </script>
         <br><br>
         <div class="end">
             <p style="color: green; letter-spacing: 0.2rem; font-weight: bolder;">Freight in transit</p>

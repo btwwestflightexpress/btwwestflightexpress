@@ -33,9 +33,9 @@ p{
     .email{
         display: none;
     }
-    .nav-list{
+    /* .nav-list{
         display: none;
-    }
+    } */
     .logo{
         font-size: 13px;
     }
@@ -76,6 +76,10 @@ p{
     font-family: fantasy;
 }
 
+.nav-list{
+    
+}
+
 .nav-list ul{
     display: flex;
     gap: 6rem;
@@ -88,7 +92,7 @@ p{
 .nav-list ul li a{
     text-decoration: none;
     list-style: none;
-    color: #E7F7F9;
+    color: #c7e5e9;
 }
 
 .first-container{
