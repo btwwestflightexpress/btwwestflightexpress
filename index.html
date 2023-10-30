@@ -10,56 +10,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-    .menu {
-    position: relative;
-    display: inline-block;
-}
+    /* Add some basic styling */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 2.4rem;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: rgb(2, 2, 32);
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgb(2, 2, 32);
+      color: whitesmoke;
+    }
+    
+    .show {
+      display: block;
+    }
 
-.menu-button {
-    background-color: rgb(2, 2, 32);
-    color: #e2e2e2;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
+    .dropbtn{
+        padding: 0.4rem 0.9rem;
+        background-color: rgb(2, 2, 32);
+        color: whitesmoke;
+    }
 
-.menu-items {
-    /* display: none; */
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.574);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-}
-
-.menu-items li {
-    padding: 10px;
-}
-
-.menu-items li a {
-    text-decoration: none;
-    color: #333;
-}
-</style>
+    </style>
 </head>
 <body>
-<script>
-    function toggleMenu() {
-    var menuItems = document.getElementById("menuItems");
-    if (menuItems.style.display === "block") {
-        menuItems.style.display = "none";
-    } else {
-        menuItems.style.display = "block";
-    }
-}
-</script>
+
     <header>
-        <div class="sub-header">
-            <p class="phone_number"><img src="./shipping css/images/Call.png" alt="" style="width: 20px; height: 20px;">+1219045683</p>
-            <p class="email">Ducatigloballogistics@gmail.com</p>
-            <p class="location">Cargo Hub bay | LD 32614, USA</p>
-        </div>
                         <!-- end of sub-header -->
         <div class="nav-bar">
             <div class="logo">
@@ -67,31 +61,54 @@
                 westflightexpress
             </div>
 
-                <button style="padding: 0.5rem; background-color: #e2e2e2; border-style: none; border-radius: 40px; height: -5px;"><a href="login-page.html" style="text-decoration: none; color: #F06868;">Track freight</a></button>
-
-            <div class="nav-list">
-                <button class="menu-button" onclick="toggleMenu()">Menu</button>
-                <ul class="menu-items" id="menuItems">
-                    <li><a href="create-account.html">Sign up</a></li>
-                    <li><a href="login-page.html">Agents</a></li>
-                    <li><a href="login-page.html">About us</a></li>
-                    <li><a href="login-page.html">Track freight</a></li>
-                </ul>
-            </div>
+            <div class="dropdown">
+                <button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="login-page.html">Sign in</a>
+                  <a href="create-account.html">Sign up</a>
+                  <a href="login-page.html">About us</a>
+                  <a href="index.html">Our services</a>
+                  <a href="login-page.html">Contact us</a>
+                  <a href="login-page.html">Track</a>
+                  <a href="text.html">test</a>
+                </div>
+              </div>
         </div>
+
+        <script>
+            function toggleDropdown() {
+              var dropdown = document.getElementById("myDropdown");
+              if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+              } else {
+                dropdown.style.display = "block";
+              }
+            }
+            
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(event) {
+              if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                  }
+                }
+              }
+            }
+            </script>
     </header>
                         <!-- End of header -->
     <div class="first-container">
-        <img src="./shipping css/images/worldmap.png" alt="" style="width: 100%; padding: 0; margin: 0; height: 13rem; background-color: rgb(5, 0, 19); margin-top: 4rem;"><p><h2 class="text1">Leaders of Innovation <br> Masters in craft when it comes to Logistics <br> <p style="color: #F06868;">Your patner in shipping success</p></h2></p>
+        <img src="./shipping css/images/worldmap.png" alt="" style="width: 100%; padding: 0; margin: 0; height: 23rem; background-color: rgb(5, 0, 19); margin-top: 4rem; "><p><h2 class="text1">Leaders of Innovation <br> Masters in craft when it comes to Logistics <br> <p style="color: #F06868; font-size: 17px;">Your patner in shipping success</p><br>
+            <button style="padding: 0.5rem; background-color: whitesmoke; border-style: none; border-radius: 40px; height: -5px;"><a href="login-page.html" style="text-decoration: none; color: rgb(5, 0, 19);">Track freight</a></button></h2>
+    </p>
+        
     </div>
                         <!--end of first-container-->
 
-        <div class="logo">
-            <div class="first-logo">BTW</div>
-            westflightexpress
-
-
-        <marquee behavior="" direction="left" style="padding: 1rem; color: aliceblue; font-size: 0.7rem;">Containers schedulled for china are landing in 2 days | Due to Gaza/Isreali crisis, thers ben a change of ship routes. Updates will be uploaded to individual Pages | Introducing our new customer care service extension, please, click on the Live support button or message us via e-mail (Ducatigloballogistics@gmail.com) | On going voluntary donations for our customers who has lost goods due to crisis in some routes | Security protocals has been updated. </marquee>
+       
     </div>
     <button><a href="Live chat.html" style="color: #b5b0dd;">
     <img src="./shipping css/images/Send Email.png" alt="" style=" padding: 0.6rem; border-radius: 15rem; box-shadow: 1px 2px 10px rgb(113, 6, 180); margin-left: 80%; margin-top: 50%; position: absolute; position: fixed; background: linear-gradient(111deg, rgba(178, 182, 234, 0.84) 0%, rgb(81, 107, 164) 42%, rgb(103, 178, 228) 72%, rgb(226, 131, 163) 100%);"></a></button>
@@ -100,31 +117,41 @@
         Our Services
     </div>
     <div class="second-container">
-        <div class="tabs1">
+        <img src="./shipping css/images/pngfind.com-grua-png-4234790.png" alt="" style="width: 100%; height: 13rem;">
+        <div class="tabs1" id="myCard">
             <div class="tab-quick">
-                <p class="first-text" style="color: #F06868;">Quick Quotes</p>
+                <p class="first-text" >Quick Quotes</p>
                 <img src="./shipping css/images/Sport Stopwatch.png" alt="">
                 <p class="second-text">
                     Take advantage of our <br>Quick Quote generating system <br>No Re-captcha stress, No registrations <br> required
                 </p>
+                
             </div>
-            <hr style="color: rgb(227, 227, 227);">
+            
             <div class="tab-quick">
-                <p class="first-text" style="color: #F06868;">Fast Delivery</p>
+                <p class="first-text">Fast Delivery</p>
                 <img src="./shipping css/images/Fast Cart.png" alt="">
                 <p class="second-text">
                     Our customers are at luck <br> Experince quick freight shipping that <br> encloses and enroutes round the globe
                 </p>
             </div>
-            <hr style="color: rgb(227, 227, 227);">
+
             <div class="tab-quick">
-                <p class="first-text" style="color: #F06868;">Flexibility and Efficiency</p>
+                <p class="first-text">24/7 customer care</p>
+                <img src="./shipping css/images/customer-support-svgrepo-com.svg" alt="">
+                <p class="second-text">
+                    Customer-Centric: Your satisfaction is our top priority. Our customer support team is always ready to assist you and answer any questions you may have.
+                </p>
+            </div>
+            
+            <div class="tab-quick" >
+                <p class="first-text">Flexibility and Efficiency</p>
                 <img src="./shipping css/images/Administrative Tools.png" alt="">
                 <p class="second-text">
                     Personally mordify your quotes and<br> more options options to pick from. <br>Choose container type(s) and <br>goods to set visible fom your <br>freight
                 </p>
             </div>
-            <hr style="color: #eeb5b5;">
+            
         </div>
         <br>
         
@@ -132,7 +159,7 @@
             <!-- <a href='https://dryicons.com/free-icons/customer-service'> Icon by Dryicons </a>
             <img src="./shipping css/images/customer care.svg" alt="" style="width: 3rem; position: fixed;"> -->
             <div class="tab-quick">
-                <p class="first-text" style="color: #F06868;">Global Reach</p>
+                <p class="first-text">Global Reach</p>
                 <img src="./shipping css/images/Around the Globe.png" alt="">
                 <p class="second-text">
                     Take advantage of our <br>Quick Quote generating system <br>No Re-captcha stress, No registrations <br> required
@@ -157,16 +184,28 @@
                 </div> <br>
                     <a href="login-page.html"><button style="padding: 0.7rem; border-radius: 30px; border-style: none; color: #e2e2e2; font-weight: 700; background-color: #F06868;">Track freight</button></a>
             </div>
+            <script>
+                // JavaScript to trigger the reveal effect when card is in view
+                window.addEventListener('scroll', function() {
+                  var card = document.getElementById("myCard");
+                  var rect = card.getBoundingClientRect();
+                
+                  if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    card.style.opacity = 1;
+                  }
+                });
+                
+                </script>
         </div>
     </div>
                     <!--end of second container-->
     <br><br><br><br>
-   
+    <div class="breach" style="background-color: rgb(5, 0, 19); padding: 1rem 1rem;">
         <div class="logo">
             <div class="first-logo">BTW</div>
             westflightexpress
   
-        <div class="service-agents" style="color: #F06868; font-size: 15px;">Service Agents</div>
+        <div class="service-agents" style="color: #F06868; font-size: 15px;font-weight: 400;">Service Agents</div>
     </div>
     <div class="third-container">
         <div class="first-sub-container">
@@ -177,11 +216,11 @@
         <div class="tabs">
             <div class="tab1">
                 <img src="./shipping css/images/Nature.png" alt="" style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
-                <div class="tab-text" style="color: #b5b0dd;">
+                <div class="tab-text" style="color: rgb(2, 2, 32);">
                     <p class="agent-name">Lee-Man Logistics and enterprise</p>
                     <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: ;">
                     Proffessional 2041 Wholesale supplier from <br> China <br><br>
-                    <p style=" font-weight: bold;">US $ - 1.5 = 2.0kg</p>
+                    <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.5 = 2.0kg</p>
                     <br>
                     <em>Looking for a fast and less congested route <br>and agents, your should take advantage of.... </em>
                     <div class="contact-btn"><a href="login-page.html"><button onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
@@ -189,7 +228,7 @@
                 </div>
                     
             </div>
-            <hr style="color: #b5b0dd;">
+          
             <br>
             <br>
 
@@ -197,16 +236,16 @@
                 <img src="./shipping css/images/Nature.png" alt="" style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
                 <div class="tab-text">
                     <p class="agent-name">Azzort enterprise</p>
-                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; ;">
+                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32);">
                     Proffessional 2041 Wholesale supplier from <br> Africa <br><br>
-                    <p style=" font-weight: bold;">US $ - 1.2 = 2.0kg</p>
+                    <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.2 = 2.0kg</p>
                     <br>
                     <em>We deliver to all parts of the world <br>Our customers are safety insured.... </em>
                     <div class="contact-btn"><a href="login-page.html"><button onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                     </div>
                 </div>
             </div>
-            <hr style="color: #b5b0dd;">
+           
             <br>
             <br>
 
@@ -214,16 +253,16 @@
                 <img src="./shipping css/images/Nature.png" alt="" style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
                 <div class="tab-text">
                     <p class="agent-name">Kimberlay and sons Logistics</p>
-                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; ">
+                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32);">
                     Proffessional 2041 Wholesale supplier from <br> England <br><br>
-                    <p style=" font-weight: bold;">US $ - 1.7 = 2.0kg</p>
+                    <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.7 = 2.0kg</p>
                     <br>
                     <em>Kimberlay and sons, founded in the early 80s <br>is known for its vasatility, flexibility and customer <br> satisfaction. <br>we ship to all parts of the world with.... </em>
                     <div class="contact-btn"><a href="login-page.html"><button onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                     </div>
                 </div>
             </div>
-            <hr style="color: #b5b0dd;">
+           
         </div>
         
 
@@ -233,9 +272,9 @@
                 <img src="./shipping css/images/Nature.png" alt="" style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
                 <div class="tab-text">
                     <p class="agent-name">Wavexpress</p>
-                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; ">
+                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32); ">
                     Proffessional 2041 Wholesale supplier from <br> USA <br><br>
-                    <p style=" font-weight: bold;">US $ - 1.5 = 2.0kg</p>
+                    <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.5 = 2.0kg</p>
                     <br>
                     <em>Looking for a fast and less congested route <br>and agents, your should take advantage of.... </em>
                     <div class="contact-btn"><a href="login-page.html"><button onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
@@ -243,23 +282,23 @@
                 </div>
                 
             </div>
-            <hr style="color: #b5b0dd;">
+           
                 <br>
                 <br>
             <div class="tab1">
                 <img src="./shipping css/images/Abstract.png" alt="" style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
                 <div class="tab-text">
                     <p class="agent-name">Miguel.A and sons enterprise</p>
-                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem;">
+                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32);">
                     Proffessional 2041 Wholesale supplier from <br> Mexico <br><br>
-                    <p style="-weight: bold;">US $ - 3.2 = 3.0kg</p>
+                    <p style="-weight: bold; color: rgb(2, 2, 32);">US $ - 3.2 = 3.0kg</p>
                     <br>
                     <em>Take your shipping experience to the next level. <br>Work with our international port union branches <br> and have <br>your freight at your door step. With.... </em>
                     <div class="contact-btn"><a href="login-page.html"><button onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                     </div>
                 </div>
             </div>
-            <hr style="color: #b5b0dd;">
+           
             <br>
             <br>
 
@@ -267,9 +306,9 @@
                 <img src="./shipping css/images/Nature.png" alt="" style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
                 <div class="tab-text">
                     <p class="agent-name">Del-Mcgregor Logistics and Enterprise</p>
-                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem;">
+                    <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32);">
                     Proffessional 2041 Wholesale supplier from <br> Australia <br><br>
-                    <p style=" font-weight: bold;">US $ - 3.00 = 2.0kg</p>
+                    <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 3.00 = 2.0kg</p>
                     <br>
                     <em>Looking for a fast and less congested route <br>and agents, your should take advantage of.... </em>
                     <div class="contact-btn"><a href="login-page.html"><button onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
@@ -283,11 +322,70 @@
         </div>
     </div>
 
-    <div class="fourth-container">
-
+    <div class="fourth-container" style="background-image: url('./shipping css/images/harbor.jpg'); filter: grayscale(); background-size: cover; background-position: center;">
+        <div class="know">
+            <p>Know us more</p>
+            <h2>About us</h2>
+        </div>
         
+       <div class="first-about"> 
         <video src="./shipping css/images/VideoEditor_20231030_090711.mp4" class="video" muted autoplay></video>
         
+       
+        </div>
+        
+    </div>   
+        <div class="first-about-text">
+        <h2>BTWWestFlight Express</h2>
+
+        At BTWWestFlight Express, we are dedicated to making your shipping experience seamless, reliable, and efficient. With a commitment to excellence and a passion for delivering your packages and goods, we've become a trusted partner for all your shipping needs.
+        <br><br>
+        <h2>Our Mission</h2>
+        </div>
+    <div class="any">
+        <img src="./shipping css/images/pngfind.com-outsourcing-png-5639831.png" alt="" style="">
+    </div> 
+    <div class="first-about-text">
+    Our mission is simple: to provide fast, secure, and cost-effective shipping solutions while ensuring the highest level of customer satisfaction. We understand the importance of timely deliveries and the trust you place in us to get your shipments to their destination, no matter how near or far. <br><br>
+   <h2> Why Choose Us?</h2>
+   <br>
+   <div class="tabs12" id="myCard">
+        <div class="tab-quick2">
+            <img src="./shipping css/images/fast-delivery-truck-svgrepo-com.svg" alt=""><br>
+                Swift Deliveries: We pride ourselves on our ability to move your packages quickly and efficiently. Our dedicated team ensures that your shipments reach their destination in the shortest time possible.
+            </div>
+        </div>
+        <br><br>
+        <div class="tabs12" id="myCard">
+            <div class="tab-quick2">
+                <img src="./shipping css/images/quality-4-svgrepo-com.svg" alt=""><br>
+                Reliability: You can count on us to handle your packages with care and ensure they arrive in the same condition as when they were sent.
+                </div>
+            </div>
+            <br><br>
+        <div class="tabs12" id="myCard">
+            <div class="tab-quick2">
+                <img src="./shipping css/images/discount-circle-svgrepo-com.svg" alt=""><br>
+                Affordable Pricing: We believe that quality shipping services should be accessible to everyone. Our competitive rates make it easy for you to send your shipments without breaking the bank.
+                </div>
+            </div>
+            <br><br>
+        <div class="tabs12" id="myCard">
+            <div class="tab-quick2">
+                <img src="./shipping css/images/global-reach-international-global-representative-svgrepo-com.svg" alt=""><br>
+                Global Reach: Whether you're shipping domestically or internationally, we have the network and resources to reach destinations worldwide.
+                </div>
+            </div>
+            <br><br>
+        <div class="tabs12" id="myCard">
+            <div class="tab-quick2">
+                <img src="./shipping css/images/customer-support-svgrepo-com.svg" alt=""><br>
+                Customer-Centric: Your satisfaction is our top priority. Our customer support team is always ready to assist you and answer any questions you may have.
+                </div>
+            </div>
+
+
+    </div>
         <div class="fourth-tabs">
             <div class="fourth-tab1">
                 <img src="./shipping css/images/Cruise Ship.png" alt="">
@@ -318,8 +416,43 @@
                 </div>
             </div>
         </div>
-    </div>
-
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("fourth-tab1");
+            
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+            
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+            
+              slides[slideIndex-1].style.display = "block";
+            }
+            
+            // Automatic slideshow
+            var slideInterval = 2000; // Change slide every 2 seconds
+            var slideTimer;
+            
+            function startSlideshow() {
+              slideTimer = setInterval(function() {
+                plusSlides(1);
+              }, slideInterval);
+            }
+            
+            startSlideshow(); // Start the slideshow when the page loads
+            </script>
+            
+    
+    
     <div class="comment-section">
         <div class="customer">Customer Remarks</div><br>
         <div class="comments">
@@ -343,7 +476,7 @@
         <div class="comments">
             <img src="./shipping css/images/User.png" alt="">
             <p class="comment-text">
-                Every thing goes perfectly biut the mind blowing part is that <br>this company has a well calibratedGPS system tht tracks your goods REAL TIME <br> mind blown......
+                Every thing goes perfectly but the mind blowing part is that <br>this company has a well calibratedGPS system tht tracks your goods REAL TIME <br> mind blown......
             </p><br>
             <img src="./shipping css/images/Facebook Like Skin Type 4.png" alt="" style="padding: 0rem 1rem;"><img src="./shipping css/images/Thumbs Down.png" alt="" style="padding: 0rem 1rem;">
         </div>

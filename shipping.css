@@ -6,7 +6,8 @@
 }
 
 body{
-    background-color: rgb(2, 2, 32);
+    /* background-color: rgb(2, 2, 32); */
+    background-color: #a5a5a5;
 }
 .sub-header{
     background-color: #F06868;
@@ -22,18 +23,19 @@ p{
 }
 
 .nav-bar{
-    background-color: rgba(58.05, 70.10, 93.50, 0.84);
+    background-color: rgb(25, 38, 66);
     display: flex;
     justify-content: space-between;
     padding: 1.7rem;
     font-family: sans-serif;
     position: fixed;
     width: 100%;
+    position: absolute;
 }
 
 @media  screen and (min-width: 350px) and (max-width: 850px){
     body{
-        background-color: rgb(2, 2, 32);
+        background-color: #e4e4e4;
     }
     .email{
         display: none;
@@ -70,14 +72,14 @@ p{
 
 @media screen and (min-width:350px) and (max-width: 500px) {
     .first-container h2{
-        font-size: 20px;
+        font-size: 25px;
         margin-top: -20%;
     }
 }
 
 @media screen and (min-width:500px) and (max-width: 700px) {
     .first-container h2{
-        font-size: 20px;
+        font-size: 25px;
         margin-top: -10%;
     }
     
@@ -126,12 +128,13 @@ p{
 .text1{
     color: #E7F7F9;
     position: absolute;
-    top: 11rem;
+    top: 13rem;
     /* left: 55rem; */
     padding: 2rem;
     letter-spacing: 0.2rem;
     text-align: left;
     text-shadow: 5px 5px 5px rgba(1, 13, 36, 0.84);
+    line-height: 2.5rem;
 }
 
 .first-breach{
@@ -164,7 +167,8 @@ p{
 .second-container{
     padding: 0 ;
     margin: 0.5rem 4rem;
-
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 10px rgb(92, 92, 92);
 }
 
 .second-container .tabs1{
@@ -174,20 +178,26 @@ p{
 }
 
 @media  screen and (min-width: 350px) and (max-width: 850px){
+    .second-container{
+        margin: 0.5rem 2rem;
+    }
     .second-container .tabs1{
         display: grid;
-        margin-left: 5%;
-        gap: 0rem;
+        text-align: center;
+        justify-content: center;
+        top: 0;
+        opacity: 0;
+        transition: opacity 2s;
     }
+
     .second-container .tabs1 .tab-quick{
         width: 100%;
-        
-        background-color: rgba(58.05, 70.10, 93.50, 0.84);
         padding: 0rem;
         height: 14rem;
-        box-shadow: 2px 2px 2px rgb(22, 20, 20);
-        /* margin-left: 0.5rem; */
+        text-align: center;
+        justify-items: center;
     }
+    
     .second-container .tabs1 .tab-quick .first-text{
         text-align: center;
         font-size: 12px;
@@ -196,49 +206,51 @@ p{
     }
     .second-container .tabs1 .tab-quick .second-text{
         font-size: 14px;
-        position: absolute;
-        margin-left: -25%;
+        /* margin-left: -25%; */
         color: #e3e0fa;
     }
     .second-container .tabs1 .tab-quick img{
-        
+        width: 5rem;
     }
 }
+
 
 @media screen and (min-width: 403px) {
     .second-container .tabs1 .tab-quick .first-text{
         text-align: center;
         font-size: 15px;
-        margin-left: 2.7rem;
+        margin-left: -0.5rem;
     }
 }
 
 .second-container .tabs1 .tab-quick{
     padding: 2rem;
-    width: 25%;
+    width: 100%;
     height: 19rem;
 }
 
 .second-container .tabs1 .tab-quick .first-text{
-    color: #b5b0dd;
+    color:rgb(5, 0, 19);
     letter-spacing: 0.2rem;
     text-align: center;
+    font-size: 17px;
+    font-weight: 400;
 }
 
 .second-container .tabs1 .tab-quick img{
-   margin-left: 4.5rem;
    background-color: #b5b0dd;
    border-radius: 20rem;
    margin-top: 1rem;
    margin-bottom: 1rem;
+   text-align: center;
 }
 
 .second-container .tabs1 .tab-quick .second-text{
-    color: #b5b0dd;
+    color: rgb(5, 0, 19);
     text-align: center;
     font-weight: lighter;
     width: 100%;
-    line-height: 1.2rem;
+    line-height: 1.6rem;
 }
 
 .second-container .tabs2{
@@ -249,7 +261,10 @@ p{
 
 @media  screen and (min-width: 350px) and (max-width: 850px){
     .second-container .tabs2{
-        display: grid;
+       display: flex;
+       flex-direction: column;
+       text-align: center;
+       justify-content: center;
     }
     .sub-container{
        width: 100%;
@@ -261,31 +276,27 @@ p{
     }
     .second-container .tabs2 .tab-quick{
         width: 100%;
-        height: fit-content;
-        background-color: rgba(58.05, 70.10, 93.50, 0.84);
         padding: 0rem;
         height: 14rem;
-        margin-left: 1.1rem;
-        
+        text-align: center;
+        justify-content: center;
+        margin-left: -0.1%;
     }
     .second-container .tabs2 .tab-quick .first-text{
         text-align: center;
-        font-size: 12px;
-        margin-left: 3rem;
-       
+        font-size: 14px;
+        font-weight: 400;
         
     }
     .second-container .tabs2 .tab-quick .second-text{
         font-size: 14px;
-        position: absolute;
-        margin-left: 1rem;
         text-align: center;
     }
     .second-container .tabs2 .tab-quick img{
-        
+        margin-right: 6rem;
     }
     .dub-container-text{
-        font-size: 13px;
+        font-size: 14px;
     }
     .tabs2 .tab-quick{
         margin-top: -3.1rem;
@@ -295,34 +306,27 @@ p{
 
 .second-container .tabs2 .tab-quick{
     padding: 2rem;
-    border-style: solid;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: #F06868;
-    width: 25%;
+    width: 100%;
     height: 18rem;
     
 }
 
 .second-container .tabs2 .tab-quick .first-text{
-    color: #F06868;
     letter-spacing: 0.2rem;
     text-align: center;
     font-weight: 700;
-    color: #b5b0dd;
+    color: rgb(5, 0, 19);
 }
 
 .second-container .tabs2 .tab-quick .second-text{
-    color: rgb(18, 18, 18);
+    color: rgb(5, 0, 19);
     font-weight: lighter;
-    color: #b5b0dd;
     line-height: 1.2rem;
     
 }
 
 .second-container .tabs2 .tab-quick img{
-    margin-left: 4.5rem;
+    margin-left: 5rem;
     background-color: #b5b0dd;
    border-radius: 20rem;
    margin-top: 1rem;
@@ -332,17 +336,20 @@ p{
 @media  screen and (min-width: 350px) and (max-width: 850px){
     .sub-container{
         width: 100%;
-        margin-left: -3rem;
+        /* margin-left: 0.1rem; */
+        margin-left: 0.1%;
+       
     }
 }  
 
 .sub-container{
     /* background-color: rgba(58.05, 70.10, 93.50, 0.84); */
     /* background: linear-gradient(111deg, rgba(104.46, 119.91, 149.90, 0.84) 0%, rgba(39.15, 46.82, 61.71, 0.84) 42%, rgba(58.05, 70.10, 93.50, 0.84) 72%, rgba(80.90, 91.71, 112.71, 0.84) 100%); */
-    background: linear-gradient(111deg, rgba(220, 221, 236, 0.84) 0%, rgb(151, 164, 193) 42%, rgb(143, 171, 227) 72%, rgb(207, 156, 227) 100%);
+    background: linear-gradient(111deg, rgba(0, 5, 61, 0.84) 0%, rgb(151, 164, 193) 42%, rgb(143, 171, 227) 72%, rgb(207, 156, 227) 100%);
     padding: 2rem 3rem;
     border-radius: 10px;
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+    text-align: left;
 }
 
 .sub-container .dub-container-text{
@@ -417,7 +424,7 @@ p{
 
 .third-container{
     padding: 2rem;
-    background-color: rgb(5, 0, 19);
+    
 }
 
 .third-container .first-sub-container{
@@ -434,8 +441,8 @@ p{
 }
 
 .overlay{
-    margin-top: -4rem;
-    margin-bottom: 2rem;
+
+    margin-bottom: 1rem;
 }
 .overlay p{
     position: absolute;
@@ -480,6 +487,8 @@ p{
     }
     .tabs .tab1{
         width: max-content;
+        height: 27rem;
+        
     }
     .third-container{
         padding: 1rem;
@@ -487,10 +496,11 @@ p{
         background-size: contain;
     }
     .tabs .tab1 img{
-        
+        height: 12rem;
     }
     .tabs .tab1 .tab-text{
         width: max-content;
+        color: rgb(2, 2, 32);
     }
     .third-container .first-sub-container{
         margin-top: 1.5rem;
@@ -504,20 +514,21 @@ p{
 .tabs .tab1{
     width: fit-content;
     border-radius: 15px;
-    width: 30%;
+    width: 100%;
+    background: linear-gradient(111deg, rgba(255, 255, 255, 0.84) 0%, rgb(152, 162, 184) 42%, rgb(69, 60, 146) 72%, rgb(5, 0, 19) 100%);
 }
 
 .tabs .tab1 .tab-text{
     padding: 2rem;
     text-align: left;
-    color: #b5b0dd;
+    color: rgb(2, 2, 32);
 }
 
 .third-container .tabs .tab1 .tab-text{
     color: #b5b0dd;
 }
 .agent-name{
-    color: #b5b0dd;
+    color: rgb(2, 2, 32);
     font-weight: 200;
     font-family: fantasy;
 }
@@ -531,13 +542,13 @@ p{
     padding: 0.4rem;
     border-radius: 20px;
     border-style: none;
-    color: #b5b0dd;
+    color: rgb(2, 2, 32);
     background-color: #F06868;
     box-shadow: 2px 2px 2px  #635f5f;
 }
 
 .fourth-container{
-    background-color: #b5b0dd;
+    background-color: #cd2222;
 }
 
 .fourth-tabs{
@@ -549,15 +560,40 @@ p{
 @media screen and (min-width: 350px) and (max-width: 850px){
     .fourth-tabs{
         flex-direction: column;
+        transition: opacity 5s ease-in;
+        background-color: #15034280;
     }
     .fourth-tab-text{
         text-align: center;
+        line-height: 1.5rem;
+        font-size: 15px;
+        letter-spacing: 0.2rem;
     }
     .fourth-tab1{
         background: transparent;
         margin-bottom: 2rem;
         font-size: 12px;
-        
+        transition: opacity 5s ease-in;
+        height: 20rem;
+    }
+    .any img{
+        width: 100%;
+    }
+    .know{
+        padding: 2rem 2rem;
+    }
+    .any{
+        background-color: #080128c5;
+    }
+    
+
+    .fourth-tab1 img{
+        width: 20%;
+        background-color: rgb(5, 0, 19);
+        padding: 0.5rem;
+        border-style: solid;
+        border-color: #b5b0dd;
+        border-radius: 20rem;
     }
     .comment-section{
         font-size: 12px;
@@ -575,8 +611,34 @@ p{
         justify-self: center;
         text-align: center;
         margin-left: 15%;
+       
     }
-}
+    .first-about{
+        line-height: 1.5rem;
+        color: white;
+    }
+    .first-about-text{
+        color: whitesmoke;
+        padding: 1rem;
+        line-height: 1.5rem;
+        letter-spacing: 0.1rem;
+        text-align: center;
+    }
+    .first-about-text h2{
+        color: #F06868;
+        text-align: left;
+    }
+    .tab-quick2{
+        padding: 1rem;
+    }
+    .tab-quick2 img{
+        width: 5rem;
+        background-color: #b5b0dd;
+        padding: 0.1rem;
+        border-radius: 20rem;
+    }
+    
+
 .video{
     justify-content: center;
     text-align: center;
@@ -584,6 +646,10 @@ p{
     margin-top: 2rem;
     border-radius: 10px;
     box-shadow: 5px 5px 8px rgb(5, 0, 19);
+}
+
+.first-about{
+    
 }
 
 
