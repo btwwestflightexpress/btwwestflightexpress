@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTWwestflightexp</title>
+    <link rel="stylesheet" href="login-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    .menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    background-color: rgb(2, 2, 32);
+    color: #e2e2e2;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-items {
+    /* display: none; */
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.574);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+.menu-items li {
+    padding: 10px;
+}
+
+.menu-items li a {
+    text-decoration: none;
+    color: #333;
+}
+</style>
+</head>
+<body>
+<script>
+    function toggleMenu() {
+    var menuItems = document.getElementById("menuItems");
+    if (menuItems.style.display === "block") {
+        menuItems.style.display = "none";
+    } else {
+        menuItems.style.display = "block";
+    }
+}
+</script>
+  <header>
+    <div class="sub-header">
+        <p class="phone_number"><img src="./shipping css/images/Call.png" alt="" style="width: 20px; height: 20px;">+1219045683</p>
+        <p class="email">Ducatigloballogistics@gmail.com</p>
+        <p class="location">Cargo Hub bay | LD 32614, USA</p>
+    </div>
+                    <!-- end of sub-header -->
+    <div class="nav-bar">
+        <div class="logo">
+            <div class="first-logo">BTW</div>
+            westflightexpress
+        </div>
+
+
+        <div class="nav-list">
+            <button class="menu-button" onclick="toggleMenu()">Menu</button>
+            <ul class="menu-items" id="menuItems">
+                <li><a href="create-account.html">Sign up</a></li>
+                <li><a href="login page.html">Agents</a></li>
+                <li><a href="login page.html">About us</a></li>
+                <li><a href="register.html">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="form">
+    <h1>Login</h1>
+    <form id="login-form" action="/login" method="POST">
+        <label for="username"></label>
+        <input type="text" id="username" name="username" required placeholder="Username"><br><br>
+        <label for="password"></label>
+        <input type="password" id="password" name="password" required placeholder="Password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+    Dont have an account yet? <button><a href="create-account.html">Sign up</a></button>
+  </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("login-form");
+    
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+    
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+    
+          // Send a POST request to the server with the login data
+          fetch("/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              if (data === "Login successful") {
+                // Redirect to a new page or perform other actions for successful login
+                window.location.href = "/freight-details.html"; // Replace with the actual URL.
+              } else {
+                // Display an error message to the user
+                alert("Login failed. Please check your username and password.");
+              }
+              
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+      });
+    </script>
+    
+</body>
+</html>

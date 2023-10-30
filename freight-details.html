@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User freight page</title>
+    <link rel="stylesheet" href="freight-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    .menu {
+    position: relative;
+    /* display: inline-block; */
+    display: none;
+}
+
+.menu-button {
+    background-color: rgb(2, 2, 32);
+    color: #e2e2e2;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.menu-items {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.574);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+.menu-items li {
+    padding: 10px;
+}
+
+.menu-items li a {
+    text-decoration: none;
+    color: #333;
+}
+</style>
+</head>
+<body>
+  <script>
+    function toggleMenu() {
+    var menuItems = document.getElementById("menuItems");
+    if (menuItems.style.display === "block") {
+        menuItems.style.display = "none";
+    } else {
+        menuItems.style.display = "block";
+    }
+}
+</script>
+
+<header>
+  <div class="sub-header">
+      <p class="phone_number"><img src="./shipping css/images/Call.png" alt="" style="width: 20px; height: 20px;">+1219045683</p>
+      <p class="email">Ducatigloballogistics@gmail.com</p>
+      <p class="location">Cargo Hub bay | LD 32614, USA</p>
+  </div>
+                  <!-- end of sub-header -->
+  <div class="nav-bar">
+      <div class="logo">
+          <div class="first-logo">BTW</div>
+          westflightexpress
+      </div>
+
+          
+
+      <div class="nav-list">
+          <button class="menu-button" onclick="toggleMenu()">Menu</button>
+          <ul class="menu-items" id="menuItems">
+              <li><a href="create-account.html">Sign up</a></li>
+              <li><a href="login-page.html">Agents</a></li>
+              <li><a href="login-page.html">About us</a></li>
+              <li><a href="index.html">Home</a></li>
+          </ul>
+      </div>
+  </div>
+</header>
+
+<h1>Welcome, <span id="display-username"></span>!</h1>
+<script>
+const username = localStorage.getItem('username');
+if (username) {
+    document.getElementById('display-username').textContent = username;
+}
+</script>
+
+
+    <h1>Generate quote</h1>
+
+    <div id="freight-details-container" style="color: black;">
+        <!-- Freight details will be displayed here -->
+    </div>
+
+    <div class="form">
+        <form action="">
+            <label for="origin">Origin</label><br>
+            <input type="text" name="origin" id="origin" required><br>
+
+            <label for="origin_street">Origin-street</label><br>
+            <input type="text" name="origin_street" id="origin_street" required><br>
+
+            <label for="origin_city">Origin-city</label><br>
+            <input type="text" name="origin_city" id="origin_city" required><br>
+
+            <label for="origin_state">Origin-state</label><br>
+            <input type="text" name="origin_state" id="origin_state" required><br>
+
+            <label for="origin_zip_code">Origin-zip-code</label><br>
+            <input type="text" name="origin_zip_code" id="origin_zip_code" required>
+            <br>
+            <br>
+            <hr>
+            <br>
+            <h3>Enter Destination information</h3>
+            <br>
+            <br>
+            <br>
+
+            <label for="destination">Destination</label><br>
+            <input type="text" name="destination" id="destination" required><br>
+
+            <label for="destination_street">Destination-street</label><br>
+            <input type="text" name="destination_street" id="destination_street" required><br>
+
+            <label for="destination_city">Destination-city</label><br>
+            <input type="text" name="destination_city" id="destination_city" required><br>
+
+            <label for="destination_state">Destination-state</label><br>
+            <input type="text" name="destination_state" id="destination_state" required><br>
+
+            <label for="destination_zip_code">Destination-zip-code</label><br>
+            <input type="text" name="destination_zip_code" id="destination_zip_code" required><br>
+            <br>
+            <br>
+            <hr>
+            <br>
+            <h3>Enter Package information</h3>
+            <br>
+            <br>
+            <br>
+            <label for="package_name">Package-name</label><br>
+            <input type="text" name="package_name" id="package_name"><br>
+
+            <label for="package_type">package-type</label><br>
+            <input type="text" name="package_type" id="package_type"><br>
+
+            <label for="package_weight">Package-weight</label><br>
+            <input type="text" name="package_weight" id="package_weight"><br>
+
+            <label for="package_dimension">Package-dimension</label><br>
+            <input type="text" name="package_dimension" id="package_dimension"><br>
+
+            <label for="package_number">Package-number</label><br>
+            <input type="text" name="package_number" id="package_number"><br>
+
+            <label for="package_fragility">Is package fragile</label><br>
+            <input type="radio" name="package_fragility" id="package_fragility" style="margin-left: -8rem;"><br>
+
+            <button type="submit">generate quote</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Replace with the actual user ID you want to retrieve freight details for
+            const userId = 6; // Replace with the user's ID
+
+            // Make an HTTP GET request to retrieve the user's freight details
+            fetch(`/user-freight_details{userId}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        // Display the freight details on the client side
+                        displayFreightDetails(data.freight_Details);
+                    } else {
+                        console.error('Failed to retrieve freight details:', data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+            function displayFreightDetails(freight_Details) {
+                const freightDetailsContainer = document.getElementById('freight-details-container');
+
+                if (freight_Details.length > 0) {
+                    // Display the freight details in a list or another format
+                    const ul = document.createElement('ul');
+                    freight_Details.forEach((detail) => {
+                        const li = document.createElement('li');
+                        li.textContent = detail;
+                        ul.appendChild(li);
+                    });
+                    freightDetailsContainer.appendChild(ul);
+                } else {
+                    // Display a message when there are no freight details
+                    freightDetailsContainer.textContent = 'No freight details found for this user.';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
