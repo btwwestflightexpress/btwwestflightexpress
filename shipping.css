@@ -639,7 +639,7 @@ box-shadow: 3px 3px 8px black;
 }
 
 .write-comment{
-    background: url('/worldmap.png');
+    background: url('./shipping css/images/worldmap.png');
     background-position: center;
     background-size: contain;
 
