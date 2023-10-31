@@ -80,7 +80,7 @@ p{
 @media screen and (min-width:500px) and (max-width: 700px) {
     .first-container h2{
         font-size: 25px;
-        margin-top: -10%;
+        margin-top: -15%;
     }
     
 }
@@ -93,7 +93,6 @@ p{
 
 .logo .first-logo{
     color: #F06868;
-    font-family: fantasy;
 }
 
 .nav-list{
@@ -159,7 +158,6 @@ p{
     text-align: center;
     color: #e3e0fa;
     font-weight: 500;
-    font-family: fantasy;
     letter-spacing: 0.2rem;
     padding: 1rem;
 }
@@ -169,6 +167,7 @@ p{
     margin: 0.5rem 4rem;
     background-color: whitesmoke;
     box-shadow: 2px 2px 10px rgb(92, 92, 92);
+    
 }
 
 .second-container .tabs1{
@@ -180,6 +179,8 @@ p{
 @media  screen and (min-width: 350px) and (max-width: 850px){
     .second-container{
         margin: 0.5rem 2rem;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
     .second-container .tabs1{
         display: grid;
@@ -206,6 +207,7 @@ p{
     }
     .second-container .tabs1 .tab-quick .second-text{
         font-size: 14px;
+        font-weight: 200;
         /* margin-left: -25%; */
         color: #e3e0fa;
     }
@@ -348,6 +350,8 @@ p{
     background: linear-gradient(111deg, rgba(0, 5, 61, 0.84) 0%, rgb(151, 164, 193) 42%, rgb(143, 171, 227) 72%, rgb(207, 156, 227) 100%);
     padding: 2rem 3rem;
     border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
     text-align: left;
 }
@@ -488,7 +492,7 @@ p{
     .tabs .tab1{
         width: max-content;
         height: 27rem;
-        
+        box-shadow: 5px 5px 8px black;
     }
     .third-container{
         padding: 1rem;
@@ -530,7 +534,6 @@ p{
 .agent-name{
     color: rgb(2, 2, 32);
     font-weight: 200;
-    font-family: fantasy;
 }
 
 .contact-btn{
@@ -561,7 +564,7 @@ p{
     .fourth-tabs{
         flex-direction: column;
         transition: opacity 5s ease-in;
-        background-color: #15034280;
+        background-color: #080128c5;
     }
     .fourth-tab-text{
         text-align: center;
@@ -628,8 +631,14 @@ p{
         color: #F06868;
         text-align: left;
     }
+    .first-about-text h3{
+        color: #b5b0dd;
+    }
     .tab-quick2{
         padding: 1rem;
+        background-color: #080128;
+        box-shadow: 5px 5px 13px black;
+        border-radius: 6px;
     }
     .tab-quick2 img{
         width: 5rem;
@@ -709,7 +718,12 @@ box-shadow: 3px 3px 8px black;
     background-position: center;
     background-size: contain;
 
-    padding: 2rem;
+    padding: 1rem;
+}
+.write-comments-back{
+    background-color: #080128d5;
+    padding: 2rem 1rem;
+    border-radius: 5px;
 }
 
 .text-comment{
