@@ -10,76 +10,90 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-    .menu {
+  /* Add some basic styling */
+  .dropdown {
     position: relative;
     display: inline-block;
-}
-
-.menu-button {
-    background-color: rgb(2, 2, 32);
-    color: #e2e2e2;
-    padding: 10px 20px;
-    border: none;
     cursor: pointer;
-}
-
-.menu-items {
-    /* display: none; */
+    margin-right: 2.4rem;
+  }
+  
+  .dropdown-content {
+    display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.574);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-}
-
-.menu-items li {
-    padding: 10px;
-}
-
-.menu-items li a {
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    padding: 12px 16px;
     text-decoration: none;
-    color: #333;
-}
-</style>
+    display: block;
+    color: rgb(2, 2, 32);
+  }
+  
+  .dropdown-content a:hover {
+    background-color: rgb(2, 2, 32);
+    color: whitesmoke;
+  }
+  
+  .show {
+    display: block;
+  }
+
+  .dropbtn{
+      padding: 0.5rem 1rem;
+      background-color: rgb(2, 2, 32);
+      color: whitesmoke;
+      border-style: none;
+  }
+
+  </style>
 </head>
 <body>
-  <script>
-    function toggleMenu() {
-    var menuItems = document.getElementById("menuItems");
-    if (menuItems.style.display === "block") {
-        menuItems.style.display = "none";
-    } else {
-        menuItems.style.display = "block";
-    }
+  <header>
+    <!-- end of sub-header -->
+<div class="nav-bar">
+<div class="logo">
+<div class="first-logo">BTW</div>
+westflightexpress
+</div>
+
+<div class="dropdown">
+<button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+<div id="myDropdown" class="dropdown-content">
+<a href="index.html">Home</a>
+<a href="login-page.html">Sign in</a>
+<a href="login-page.html">Contact us</a>
+</div>
+</div>
+</div>
+
+<script>
+function toggleDropdown() {
+var dropdown = document.getElementById("myDropdown");
+if (dropdown.style.display === "block") {
+dropdown.style.display = "none";
+} else {
+dropdown.style.display = "block";
+}
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+for (var i = 0; i < dropdowns.length; i++) {
+var openDropdown = dropdowns[i];
+if (openDropdown.style.display === "block") {
+openDropdown.style.display = "none";
+}
+}
+}
 }
 </script>
-
-<header>
-  <div class="sub-header">
-      <p class="phone_number"><img src="./shipping css/images/Call.png" alt="" style="width: 20px; height: 20px;">+1219045683</p>
-      <p class="email">Ducatigloballogistics@gmail.com</p>
-      <p class="location">Cargo Hub bay | LD 32614, USA</p>
-  </div>
-                  <!-- end of sub-header -->
-  <div class="nav-bar">
-      <div class="logo">
-          <div class="first-logo">BTW</div>
-          westflightexpress
-      </div>
-
-          
-
-      <div class="nav-list">
-          <button class="menu-button" onclick="toggleMenu()">Menu</button>
-          <ul class="menu-items" id="menuItems">
-              <li><a href="create-account.html">Sign up</a></li>
-              <li><a href="login-page.html">Agents</a></li>
-              <li><a href="login-page.html">About us</a></li>
-              <li><a href="index.html">Home</a></li>
-          </ul>
-      </div>
-  </div>
 </header>
   
 <div class="form">
@@ -93,6 +107,11 @@
 
     <label for="password"></label>
     <input type="password" id="password" name="password" required placeholder="password"><br>
+
+    <!-- <label for="senders_name"></label>
+    <input type="text" name="senders_name" id="senders_name" required placeholder="Senders Name" > -->
+    <!-- onclick="alert('Note that the Senders name you enter now will be the senders name you will use when generating your quote and quote retrieval')" -->
+<br>
 
     <button type="submit">Register</button>
   </form>
@@ -108,6 +127,8 @@
       const username = document.getElementById("username").value;
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
+      // const senders_name = document.getElementById("senders_name").value;
+      
   
       // Create an object with the user data
       const userData = { username, email, password };
@@ -142,6 +163,6 @@
     const registrationForm = document.getElementById("registration-form");
     registrationForm.addEventListener("submit", handleRegistration);
   </script>
-  
+  <script src="//code.tidio.co/c3u6inqchllvaycdalhg5sqldo6ayjan.js" async></script>
 </body>
 </html>

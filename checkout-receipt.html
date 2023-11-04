@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User freight page</title>
+    <link rel="stylesheet" href="checkout-receipt.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Add some basic styling */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 2.4rem;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: rgb(2, 2, 32);
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgb(2, 2, 32);
+      color: whitesmoke;
+    }
+    
+    .show {
+      display: block;
+    }
+
+    .dropbtn{
+        padding: 0.5rem 1rem;
+        background-color: rgb(2, 2, 32);
+        color: whitesmoke;
+        border-style: none;
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- end of sub-header -->
+<div class="nav-bar">
+<div class="logo">
+<div class="first-logo">BTW</div>
+westflightexpress
+</div>
+
+<div class="dropdown">
+<button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+<div id="myDropdown" class="dropdown-content">
+    <a href="index.html">Home</a>
+  <a href="login-page.html">Contact us</a>
+</div>
+</div>
+</div>
+
+<script>
+function toggleDropdown() {
+var dropdown = document.getElementById("myDropdown");
+if (dropdown.style.display === "block") {
+dropdown.style.display = "none";
+} else {
+dropdown.style.display = "block";
+}
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+for (var i = 0; i < dropdowns.length; i++) {
+  var openDropdown = dropdowns[i];
+  if (openDropdown.style.display === "block") {
+    openDropdown.style.display = "none";
+  }
+}
+}
+}
+</script>
+</header>
+  
+
+    <h1>Quote Details </h1>
+  <div class="form">
+    <p style="box-shadow: 5px 5px 5px black;
+    border-top-radius: 5px;"><strong>Sender's Name:</strong> <span id="senders_name"></span></p>
+    <p><strong>Origin:</strong> <span id="origin"></span></p>
+    <p><strong>Origin State:</strong> <span id="origin_state"></span></p>
+    <p><strong>Origin Zip-code:</strong> <span id="origin_zip_code"></span></p>
+    <p><strong>Reciever's Name:</strong> <span id="recievers_name"></span></p>
+    <p><strong>Reciever's Phone number:</strong> <span id="recievers_phone_number"></span></p>
+    <p><strong>Reciever's Email:</strong> <span id="recievers_email"></span></p>
+    <p><strong>Destination:</strong> <span id="destination"></span></p>
+    <p><strong>Destination State:</strong> <span id="destination_state"></span></p>
+    <p><strong>Destination Zip-code:</strong> <span id="destination_zip_code"></span></p>
+    <p><strong>Package Name:</strong> <span id="package_name"></span></p>
+    <p><strong>Package Type:</strong> <span id="package_type"></span></p>
+    <p><strong>Package Weight:</strong> <span id="package_weight"></span></p>
+    <p><strong>Package Dimension:</strong> <span id="package_demension"></span></p>
+    <p><strong>Package Number(count):</strong> <span id="package_number"></span></p>
+    <p><strong>Tracking code:</strong> <span id="tracking_code"></span></p>
+    <p style="box-shadow: 5px 5px 5px black;
+    border-bottom-radius: 5px;">
+    <button id="copy-button" style="box-shadow: 2px 2px 5px black;
+    border-radius: 5px;">Copy Tracking Code</button>
+    </p>
+  </div>
+    <script>
+        // JavaScript code to retrieve and display quote details and tracking code
+        document.addEventListener('DOMContentLoaded', function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            // Retrieve and display quote details and tracking code
+            document.getElementById('senders_name').textContent = urlParams.get('senders_name');
+            document.getElementById('origin').textContent = urlParams.get('origin');
+            document.getElementById('origin_state').textContent = urlParams.get('origin_state');
+            document.getElementById('origin_zip_code').textContent = urlParams.get('origin_zip_code');
+            document.getElementById('recievers_name').textContent = urlParams.get('recievers_name');
+            document.getElementById('recievers_phone_number').textContent = urlParams.get('recievers_phone_number');
+            document.getElementById('recievers_email').textContent = urlParams.get('recievers_email');
+            document.getElementById('destination').textContent = urlParams.get('destination');
+            document.getElementById('destination_state').textContent = urlParams.get('destination_state');
+            document.getElementById('destination_zip_code').textContent = urlParams.get('destination_zip_code');
+            document.getElementById('package_name').textContent = urlParams.get('package_name');
+            document.getElementById('package_type').textContent = urlParams.get('package_type');
+            document.getElementById('package_weight').textContent = urlParams.get('package_weight');
+            document.getElementById('package_demension').textContent = urlParams.get('package_demension');
+            document.getElementById('package_number').textContent = urlParams.get('package_number');
+            document.getElementById('tracking_code').textContent = urlParams.get('tracking_code');
+
+            // Copy tracking code to the clipboard
+            // Copy tracking code to the clipboard
+            const copyButton = document.getElementById('copy-button');
+            copyButton.addEventListener('click', function () {
+                const trackingCode = urlParams.get('tracking_code');
+                navigator.clipboard.writeText(trackingCode).then(function () {
+                    alert('Tracking code copied to clipboard: ' + trackingCode);
+                }).catch(function (err) {
+                    console.error('Copy to clipboard failed: ' + err);
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>

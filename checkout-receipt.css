@@ -18,8 +18,14 @@ body{
 }
 
 p{
-  color: #E7F7F9;
-  font-family: sans-serif;
+  color: rgb(2, 2, 32);
+  padding: 0.3rem;
+  background-color: whitesmoke;
+  
+ 
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-bar{
@@ -32,7 +38,7 @@ p{
 
 @media  screen and (min-width: 350px) and (max-width: 850px){
   body{
-      background-color: rgb(2, 2, 32);
+      background-color: ;
   }
   .email{
       display: none;
@@ -118,8 +124,8 @@ h1{
 }
 .form{
   text-align: left;
-  padding: 2rem;
-  background-color: #c9c2f8;
+  padding: 1rem;
+  background-color: rgb(17, 17, 55);
   margin: 1rem;
   border-radius: 0.2rem;
   letter-spacing: 0.2rem;
@@ -162,13 +168,14 @@ h1{
   color: #c9c2f8;
 }
 
+strong{
+  padding: 1rem;
+}
 
-.quote-details{
+.form span{
   text-align: left;
-  padding: 2rem;
-  background-color: #c9c2f8;
-  margin: 1rem;
-  border-radius: 0.2rem;
-  letter-spacing: 0.2rem;
-  font-size: 13px;
+  padding: 1rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 15px;
 }

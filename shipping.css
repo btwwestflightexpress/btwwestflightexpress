@@ -488,9 +488,12 @@ p{
         display: block;
         font-size: 0.8rem;
         justify-content: center;
+        /* margin-left: 1rem; */
+        background-color: whitesmoke;
     }
     .tabs .tab1{
-        width: max-content;
+        /* width: max-content; */
+        margin-left: 10%;
         height: 27rem;
         box-shadow: 5px 5px 8px black;
     }
@@ -518,7 +521,7 @@ p{
 .tabs .tab1{
     width: fit-content;
     border-radius: 15px;
-    width: 100%;
+    width: 80%;
     background: linear-gradient(111deg, rgba(255, 255, 255, 0.84) 0%, rgb(152, 162, 184) 42%, rgb(69, 60, 146) 72%, rgb(5, 0, 19) 100%);
 }
 

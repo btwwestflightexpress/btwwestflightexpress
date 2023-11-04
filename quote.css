@@ -18,8 +18,16 @@ body{
 }
 
 p{
-  color: #E7F7F9;
+  color: rgb(2, 2, 32);
   font-family: sans-serif;
+  padding: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+p strong{
+  font-weight: 100;
 }
 
 .nav-bar{

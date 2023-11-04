@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User freight page</title>
+    <link rel="stylesheet" href="freight-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Add some basic styling */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 2.4rem;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: rgb(2, 2, 32);
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgb(2, 2, 32);
+      color: whitesmoke;
+    }
+    
+    .show {
+      display: block;
+    }
+
+    .dropbtn{
+        padding: 0.5rem 1rem;
+        background-color: rgb(2, 2, 32);
+        color: whitesmoke;
+        border-style: none;
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- end of sub-header -->
+<div class="nav-bar">
+<div class="logo">
+<div class="first-logo">BTW</div>
+westflightexpress
+</div>
+
+<div class="dropdown">
+<button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+<div id="myDropdown" class="dropdown-content">
+    <a href="index.html">Home</a>
+    <a href="quote.html">Retrieve Quote</a>
+  <a href="login-page.html">Contact us</a>
+</div>
+</div>
+</div>
+
+<script>
+function toggleDropdown() {
+var dropdown = document.getElementById("myDropdown");
+if (dropdown.style.display === "block") {
+dropdown.style.display = "none";
+} else {
+dropdown.style.display = "block";
+}
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+for (var i = 0; i < dropdowns.length; i++) {
+  var openDropdown = dropdowns[i];
+  if (openDropdown.style.display === "block") {
+    openDropdown.style.display = "none";
+  }
+}
+}
+}
+</script>
+</header>
+
+
+
+
+    <div id="freight-details-container" style="color: black;">
+        <!-- Freight details will be displayed here -->
+    </div>
+    
+    <div class="form">
+        <a href="quote.html" style="padding: 0.7rem; text-decoration: none; color: #c9c2f8; background-color: rgb(2, 2, 32); border-radius: 5px;">Retrieve Quote</a><br><br><br>
+        <h2>Sender's Details</h2><br><br>
+        <form action="" id="quote-form">
+            <label for="senders_name">Sender's Name</label><br>
+            <input type="text" name="senders_name" id="senders_name" required><br>
+
+            <label for="origin">Origin</label><br>
+            <input type="text" name="origin" id="origin" required><br>
+
+            <label for="origin_state">Origin state</label><br>
+            <input type="text" name="origin_state" id="origin_state" required><br>
+
+            <label for="origin_zip_code">Origin zip-code</label><br>
+            <input type="text" name="origin_zip_code" id="origin_zip_code" required>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Reciever's Details</h2><br><br>
+            <label for="recievers_name">Reciever's Name</label><br>
+            <input type="text" name="recievers_name" id="recievers_name" required><br>
+
+            <label for="recievers_phone_number">Reciever's Phone number</label><br>
+            <input type="text" name="recievers_phone_number" id="recievers_phone_number" required><br>
+
+            <label for="recievers_email">Reciever's Email</label><br>
+            <input type="text" name="recievers_email" id="recievers_email" required><br>
+
+            <label for="destination">Destination</label><br>
+            <input type="text" name="destination" id="destination" required><br>
+
+            <label for="destination_state">Destination state</label><br>
+            <input type="text" name="destination_state" id="destination_state" required><br>
+
+            <label for="destination_zip_code">Destination zip-code</label><br>
+            <input type="text" name="destination_zip_code" id="destination_zip_code" required><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>Product Details</h2><br><br>
+        
+            <label for="package_name">Package name</label><br>
+            <input type="text" name="package_name" id="package_name" required><br>
+
+            <label for="package_type">package type</label><br>
+            <input type="text" name="package_type" id="package_type"><br>
+
+            <label for="package_weight">Package weight</label><br>
+            <input type="text" name="package_weight" id="package_weight" required><br>
+
+            <label for="package_demension">Package dimension</label><br>
+            <input type="text" name="package_demension" id="package_demension"><br>
+
+            <label for="package_number">Package number(count)</label><br>
+            <input type="text" name="package_number" id="package_number" required><br>
+
+            <label for="package_password">Package password</label><br>
+            <input type="text" name="package_password" id="package_password" required><br>
+
+            <button type="submit">Generate quote</button>
+            <button type="reset">Cancel</button>
+            <div id="success-message"></div>
+            <button id="proceed-button">View quote</button>
+            
+        </form>
+    </div>
+    <script>
+            // Add this code in your client-side JavaScript file, after the document has loaded.
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get a reference to the quote form using its ID
+            const quoteForm = document.getElementById('quote-form');
+
+            // Attach an event listener to the form for submission
+            quoteForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+
+                // Get the form input values
+                const senders_name = document.getElementById('senders_name').value;
+                const origin = document.getElementById('origin').value;
+                const origin_state = document.getElementById('origin_state').value;
+                const origin_zip_code = document.getElementById('origin_zip_code').value;
+                const recievers_name = document.getElementById('recievers_name').value;
+                const recievers_phone_number = document.getElementById('recievers_phone_number').value;
+                const recievers_email = document.getElementById('recievers_email').value;
+                const destination = document.getElementById('destination').value;
+                const destination_state = document.getElementById('destination_state').value;
+                const destination_zip_code = document.getElementById('destination_zip_code').value;
+                const package_name = document.getElementById('package_name').value;
+                const package_type = document.getElementById('package_type').value;
+                const package_weight = document.getElementById('package_weight').value;
+                const package_demension = document.getElementById('package_demension').value;
+                const package_number = document.getElementById('package_number').value;
+                const package_password = document.getElementById('package_password').value;
+
+                // Create an object to represent the quote details
+                const formData = {
+                    senders_name: senders_name,
+                    origin: origin,
+                    origin_state: origin_state,
+                    origin_zip_code: origin_zip_code,
+                    recievers_name: recievers_name,
+                    recievers_phone_number: recievers_phone_number,
+                    recievers_email: recievers_email,
+                    destination: destination,
+                    destination_state: destination_state,
+                    destination_zip_code: destination_zip_code,
+                    package_name: package_name,
+                    package_type: package_type,
+                    package_weight: package_weight,
+                    package_demension: package_demension,
+                    package_number: package_number,
+                    package_password: package_password,
+                    // Add other fields as needed
+                };
+
+                // Send an HTTP POST request to the server with the quote details
+                fetch('/submit-quote', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData), // Convert the data to JSON format
+                })
+               
+                // Inside your JavaScript code for handling the quote submission
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Quote submission was successful, and data may contain the tracking code
+                        const trackingCode = data.trackingCode;
+
+                        // Display a success message to the user
+                        const successMessage = document.getElementById('success-message');
+                        successMessage.textContent = 'Quote submitted successfully!';
+                        alert('Quote Registered!')
+
+                        // Show a button for the user to proceed
+                        const proceedButton = document.getElementById('proceed-button');
+                        proceedButton.style.display = 'block';
+                    
+                        // Handle button click to navigate to the next page
+                        proceedButton.addEventListener('click', () => {
+                            // window.location.href = `/checkout-receipt.html`;
+                            window.location.href = `/checkout-receipt.html?senders_name=${senders_name}&origin=${origin}&origin_state=${origin_state}&origin_zip_code=${origin_zip_code}&recievers_name=${recievers_name}&recievers_phone_number=${recievers_phone_number}&recievers_email=${recievers_email}&destination=${destination}&destination_state=${destination_state}&destination_zip_code=${destination_zip_code}&package_name=${package_name}&package_type=${package_type}&package_weight=${package_weight}&package_demension=${package_demension}&package_number=${package_number}&tracking_code=${trackingCode}&package_password=${package_password}`;
+                        });
+                    } else {
+                        // Handle errors, e.g., show an error message to the user
+                        console.error(data.message);
+                    }
+                })
+                .catch(error => {
+                    // Handle network or server-related errors
+                    console.error('Error:', error);
+                });
+
+            });
+        });
+    </script>
+
+    <script src="//code.tidio.co/c3u6inqchllvaycdalhg5sqldo6ayjan.js" async></script>
+</body>
+</html>

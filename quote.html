@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve quote</title>
+    <link rel="stylesheet" href="quote.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Add some basic styling */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 2.4rem;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: rgb(2, 2, 32);
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgb(2, 2, 32);
+      color: whitesmoke;
+    }
+    
+    .show {
+      display: block;
+    }
+
+    .dropbtn{
+        padding: 0.5rem 1rem;
+        background-color: rgb(2, 2, 32);
+        color: whitesmoke;
+        border-style: none;
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- end of sub-header -->
+<div class="nav-bar">
+<div class="logo">
+<div class="first-logo">BTW</div>
+westflightexpress
+</div>
+
+<div class="dropdown">
+<button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+<div id="myDropdown" class="dropdown-content">
+    <a href="index.html">Home</a>
+  <a href="login-page.html">Contact us</a>
+</div>
+</div>
+</div>
+
+<script>
+function toggleDropdown() {
+var dropdown = document.getElementById("myDropdown");
+if (dropdown.style.display === "block") {
+dropdown.style.display = "none";
+} else {
+dropdown.style.display = "block";
+}
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+for (var i = 0; i < dropdowns.length; i++) {
+  var openDropdown = dropdowns[i];
+  if (openDropdown.style.display === "block") {
+    openDropdown.style.display = "none";
+  }
+}
+}
+}
+</script>
+</header>
+
+  <h1>Retrieve Your Quote</h1>
+<div class="form">
+  <form id="retrieve-form">
+    <label for="trackingCode">Tracking Code:</label>
+    <input type="text" id="tracking_code" name="tracking_code">
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="package_password" name="package_password" required>
+    <br>
+
+    <button type="submit">Retrieve Quote</button>
+  </form>
+</div>
+<div class="form">
+  <div id="quote-details">
+    <!-- Quote details will be displayed here -->
+  </div>
+</div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const retrieveForm = document.getElementById('retrieve-form');
+      const quoteDetails = document.getElementById('quote-details');
+
+      retrieveForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const tracking_code = document.getElementById('tracking_code').value;
+        const package_password = document.getElementById('package_password').value;
+
+        fetch('/retrieve-quote', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ tracking_code, package_password }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            // Quote retrieved successfully
+            const quote = data.quote;
+
+            // Display quote details
+            quoteDetails.innerHTML = `
+              <h2>Quote Details</h2>
+              <br>
+              <p><strong>Sender's Name:</strong> ${quote.senders_name}</p>
+              <p><strong>Origin:</strong> ${quote.Origin}</p>
+              <p><strong>Origin State:</strong> ${quote.origin_state}</p>
+              <p><strong>Origin Zip-code:</strong> ${quote.origin_zip_code}</p>
+              <p><strong>Reciever's Name:</strong> ${quote.recievers_name}</p>
+              <p><strong>Recievers Phone number:</strong> ${quote.recievers_phone_number}</p>
+              <p><strong>Reciever's Email:</strong> ${quote.recievers_email}</p>
+              <p><strong>Destination:</strong> ${quote.destination}</p>
+              <p><strong>Destination State:</strong> ${quote.destination_state}</p>
+              <p><strong>Destination Zip-code:</strong> ${quote.destination_zip_code}</p>
+              <p><strong>Package Name:</strong> ${quote.package_name}</p>
+              <p><strong>Package Type:</strong> ${quote.package_type}</p>
+              <p><strong>Package Weight:</strong> ${quote.package_weight}</p>
+              <p><strong>Package Dimension:</strong> ${quote.package_demension}</p>
+              <p><strong>Package Number:</strong> ${quote.package_number}</p>
+              <p><strong>Tracking Code:</strong> ${quote.tracking_code}</p>
+              
+            `;
+          } else {
+            // Show an error message
+            quoteDetails.innerHTML = `<p>Error: ${data.message}</p>`;
+          }
+        })
+        .catch(error => {
+          quoteDetails.innerHTML = `<p>Error: ${error.message}</p>`;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
