@@ -69,7 +69,8 @@ app.post("/login", (req, res) => {
             const storedPassword = results[0].password;
 
             if (password === storedPassword) {
-                res.status(200).json({ success: true, message: "Login successful" });
+                res.status(200).json({ success: true, message: "Login successful",  username: results[0].username, });
+                
             } else {
                 res.status(401).json({ success: false, message: "Login failed. Passwords do not match." });
             }

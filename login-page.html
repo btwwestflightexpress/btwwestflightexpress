@@ -131,7 +131,8 @@ openDropdown.style.display = "none";
                 if (data.success) {
                   alert('Login successful!')
                     messageDiv.textContent = "Login successful. Redirecting...";
-                    window.location.href = "/freight-details.html"; // Redirect to the dashboard or desired page
+                    window.location.href = "/dashboard.html"; // Redirect to the dashboard or desired page
+                    usernameDisplay.textContent = data.username;
                 } else {
                     messageDiv.textContent = "Login failed. Please check your username and password.";
                 }
