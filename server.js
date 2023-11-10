@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,10 +18,13 @@ app.listen(port, () => {
 });
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'thisismydesktop2023',
-  database: 'accounts_creation',
+  host: process.env.DB_HOST || 'bjl2yaq9piwpy06imfj1-mysql.services.clever-cloud.com',
+  user: process.env.DB_USER || 'utyft4vj2nrxvyqd',
+  password: process.env.DB_PASSWORD || 'hh50IQRqZFhFwaxvLjW',
+  database: process.env.DB_NAME || 'bjl2yaq9piwpy06imfj1',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 db.connect((err) => {
