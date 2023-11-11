@@ -10,10 +10,10 @@ const path = require('path');
 const crypto = require('crypto');
 
 const db = mysql.createPool({
-  host: process.env.DB_HOST || 'bjl2yaq9piwpy06imfj1-mysql.services.clever-cloud.com',
-  user: process.env.DB_USER || 'utyft4vj2nrxvyqd',
-  password: process.env.DB_PASSWORD || 'hh50IQRqZFhFwaxvLjW',
-  database: process.env.DB_NAME || 'bjl2yaq9piwpy06imfj1',
+  host: process.env.DB_HOST || 'b3x7sfsuecfifb7tqu4p-mysql.services.clever-cloud.com',
+  user: process.env.DB_USER || 'upnppa8s1tkwjsf2',
+  password: process.env.DB_PASSWORD || 'XA6W3jq3KXoencIIOSLD',
+  database: process.env.DB_NAME || 'b3x7sfsuecfifb7tqu4p',
   port: process.env.DB_PORT || 3306,
   waitForConnections: true,
   connectionLimit: 10,
