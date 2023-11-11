@@ -25,6 +25,8 @@ const db = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   promise: true, // Enables the promise-based API
+  connectTimeout: 15000, // milliseconds
+  acquireTimeout: 15000, // milliseconds
 });
 
 // Handle connection errors
