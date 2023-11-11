@@ -1,16 +1,6 @@
 const env = require('dotenv').config();
 console.log(env.parsed);
 
-app.use(express.static(__dirname));
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,6 +8,14 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const path = require('path');
 const crypto = require('crypto');
+
+
+app.use(express.static(__dirname));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
 
 const db = mysql.createPool({
   host: process.env.DB_HOST || 'b3x7sfsuecfifb7tqu4p-mysql.services.clever-cloud.com',
