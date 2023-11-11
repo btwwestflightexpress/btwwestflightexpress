@@ -24,16 +24,11 @@ const db = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  promise: true // Enables the promise-based API
+  promise: true, // Enables the promise-based API
 });
 
 // Handle connection errors
-db.getConnection((err, connection) => {
-  if (err) {
-    console.error('Error connecting to the database:', err);
-    process.exit(1); // Terminate the application on connection error
-  }
-
+db.promise().getConnection().then((connection) => {
   console.log('Connected to the database');
 
   app.use(express.json());
@@ -58,28 +53,29 @@ db.getConnection((err, connection) => {
     }
   });
 
-  app.post("/login", (req, res) => {
+  app.post("/login", async (req, res) => {
     const { username, password } = req.body;
 
     // Query the database to check if the user exists and the password is correct
     const query = "SELECT * FROM users WHERE username = ?";
-    db.promise().query(query, [username])
-      .then(([results]) => {
-        if (results.length > 0) {
-          const storedPassword = results[0].password;
-          if (password === storedPassword) {
-            res.status(200).json({ success: true, message: "Login successful", username: results[0].username });
-          } else {
-            res.status(401).json({ success: false, message: "Login failed. Passwords do not match." });
-          }
+
+    try {
+      const [results] = await db.promise().query(query, [username]);
+
+      if (results.length > 0) {
+        const storedPassword = results[0].password;
+        if (password === storedPassword) {
+          res.status(200).json({ success: true, message: "Login successful", username: results[0].username });
         } else {
-          res.status(401).json({ success: false, message: "Login failed. User not found." });
+          res.status(401).json({ success: false, message: "Login failed. Passwords do not match." });
         }
-      })
-      .catch((err) => {
-        console.error("Error in database query: " + err);
-        res.status(500).json({ success: false, message: "Internal Server Error" });
-      });
+      } else {
+        res.status(401).json({ success: false, message: "Login failed. User not found." });
+      }
+    } catch (err) {
+      console.error("Error in database query: " + err);
+      res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
   });
 
   // Function to generate a random 10-character alphanumeric code
@@ -141,4 +137,18 @@ db.getConnection((err, connection) => {
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
+}).catch((err) => {
+  console.error('Error connecting to the database:', err);
+  process.exit(1); // Terminate the application on connection error
 });
+
+// Function to generate a random 10-character alphanumeric code
+function generateTrackingCode() {
+  const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let code = '';
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = crypto.randomInt(0, characters.length);
+    code += characters.charAt(randomIndex);
+  }
+  return code;
+}
