@@ -22,7 +22,7 @@ const db = mysql.createPool({
   user: process.env.DB_USER || 'upnppa8s1tkwjsf2',
   password: process.env.DB_PASSWORD || 'XA6W3jq3KXoencIIOSLD',
   database: process.env.DB_NAME || 'b3x7sfsuecfifb7tqu4p',
-  port: process.env.DB_PORT || 3306,
+  port: process.env.DB_PORT || 21629,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
