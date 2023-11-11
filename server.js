@@ -32,7 +32,8 @@ const db = mysql.createPool({
 // Handle connection errors
 db.promise().getConnection().then((connection) => {
   console.log('Connected to the database');
-
+  connection.release(); // Release the initial connection
+  
   app.use(express.json());
   app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -42,6 +43,8 @@ db.promise().getConnection().then((connection) => {
 
     const sql = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
     const values = [username, email, password];
+
+    
 
     try {
       const [result] = await connection.query(sql, values);
