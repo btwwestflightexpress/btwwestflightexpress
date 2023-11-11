@@ -18,10 +18,10 @@ app.get('/', (req, res) => {
 
 
 const db = mysql.createPool({
-  host: process.env.DB_HOST || 'b3x7sfsuecfifb7tqu4p-mysql.services.clever-cloud.com',
+  host: process.env.DB_HOST || 'bkubykxpbnzxb3vekteh-mysql.services.clever-cloud.com',
   user: process.env.DB_USER || 'upnppa8s1tkwjsf2',
   password: process.env.DB_PASSWORD || 'XA6W3jq3KXoencIIOSLD',
-  database: process.env.DB_NAME || 'b3x7sfsuecfifb7tqu4p',
+  database: process.env.DB_NAME || 'bkubykxpbnzxb3vekteh',
   port: process.env.DB_PORT || 21629,
   waitForConnections: true,
   connectionLimit: 10,
