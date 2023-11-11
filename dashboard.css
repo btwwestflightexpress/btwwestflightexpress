@@ -77,6 +77,16 @@ p{
       font-size: 10px;
       margin-top: -10%;
   }
+  .midlayer{
+    text-align: center;
+    justify-content: center;
+  }
+  .midlayer .midimg{
+    background-color: rgb(2, 2, 32);
+    border-radius: 50rem;
+    width: 80%;
+    margin-left: 10%;
+  }
   
 }
 
@@ -207,4 +217,14 @@ button a{
   cursor: text;
   letter-spacing: 0.2rem;
   border-radius: 5px;
+}
+.midlayer{
+  text-align: center;
+  justify-content: center;
+}
+
+.midlayer .midimg img{
+  width: 70%;
+  padding: 1rem;
+  box-shadow: 2px 2px 6px black;
 }
