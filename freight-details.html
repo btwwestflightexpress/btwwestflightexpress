@@ -165,6 +165,12 @@ for (var i = 0; i < dropdowns.length; i++) {
             <label for="package_password">Package password</label><br>
             <input type="text" name="package_password" id="package_password" required><br>
 
+            <label for="latitude">Latitude</label><br>
+            <input type="number" name="latitude" id="latitude" required><br>
+
+            <label for="longitude">Longitude</label><br>
+            <input type="number" name="longitude" id="longitude" required><br>
+
             <button type="submit">Generate quote</button>
             <button type="reset">Cancel</button>
             <div id="success-message"></div>
@@ -199,6 +205,8 @@ for (var i = 0; i < dropdowns.length; i++) {
                 const package_demension = document.getElementById('package_demension').value;
                 const package_number = document.getElementById('package_number').value;
                 const package_password = document.getElementById('package_password').value;
+                const latitude = document.getElementById('latitude').value;
+                const longitude = document.getElementById('longitude').value;
 
                 // Create an object to represent the quote details
                 const formData = {
@@ -218,6 +226,8 @@ for (var i = 0; i < dropdowns.length; i++) {
                     package_demension: package_demension,
                     package_number: package_number,
                     package_password: package_password,
+                    latitude: latitude,
+                    longitude: longitude,
                     // Add other fields as needed
                 };
 
@@ -249,7 +259,7 @@ for (var i = 0; i < dropdowns.length; i++) {
                         // Handle button click to navigate to the next page
                         proceedButton.addEventListener('click', () => {
                             // window.location.href = `/checkout-receipt.html`;
-                            window.location.href = `/checkout-receipt.html?senders_name=${senders_name}&origin=${origin}&origin_state=${origin_state}&origin_zip_code=${origin_zip_code}&recievers_name=${recievers_name}&recievers_phone_number=${recievers_phone_number}&recievers_email=${recievers_email}&destination=${destination}&destination_state=${destination_state}&destination_zip_code=${destination_zip_code}&package_name=${package_name}&package_type=${package_type}&package_weight=${package_weight}&package_demension=${package_demension}&package_number=${package_number}&tracking_code=${trackingCode}&package_password=${package_password}`;
+                            window.location.href = `/checkout-receipt.html?senders_name=${senders_name}&origin=${origin}&origin_state=${origin_state}&origin_zip_code=${origin_zip_code}&recievers_name=${recievers_name}&recievers_phone_number=${recievers_phone_number}&recievers_email=${recievers_email}&destination=${destination}&destination_state=${destination_state}&destination_zip_code=${destination_zip_code}&package_name=${package_name}&package_type=${package_type}&package_weight=${package_weight}&package_demension=${package_demension}&package_number=${package_number}&tracking_code=${trackingCode}&package_password=${package_password}&latitude=${latitude}&longitude=${longitude}`;
                         });
                     } else {
                         // Handle errors, e.g., show an error message to the user
@@ -264,7 +274,8 @@ for (var i = 0; i < dropdowns.length; i++) {
             });
         });
     </script>
+    <script src="//code.tidio.co/0h4shzrtciagyx7ockwjw6tncm9fqg51.js" async></script>
 
-    <script src="//code.tidio.co/c3u6inqchllvaycdalhg5sqldo6ayjan.js" async></script>
+    <!-- <script src="//code.tidio.co/c3u6inqchllvaycdalhg5sqldo6ayjan.js" async></script> -->
 </body>
 </html>
