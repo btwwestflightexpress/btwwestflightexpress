@@ -116,8 +116,6 @@ for (var i = 0; i < dropdowns.length; i++) {
     <!-- Quote details will be displayed here -->
   </div>
 </div>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<div id="map" style="height: 400px;"></div>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const retrieveForm = document.getElementById('retrieve-form');
@@ -166,14 +164,6 @@ for (var i = 0; i < dropdowns.length; i++) {
               <p><strong>Longitude:</strong> ${quote.longitude}</p>
               
             `;
-            const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 13);
-
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap contributors'
-                }).addTo(mymap);
-
-                L.marker([parseFloat(quote.latitude), parseFloat(quote.longitude)]).addTo(mymap)
-                    .bindPopup('Your Quote Location').openPopup();
           } else {
             // Show an error message
             quoteDetails.innerHTML = `<p>Error: ${data.message}</p>`;
@@ -183,16 +173,13 @@ for (var i = 0; i < dropdowns.length; i++) {
           quoteDetails.innerHTML = `<p>Error: ${error.message}</p>`;
         });
       });
-      function updateMap(newLatitude, newLongitude) {
-                // Update the map with new latitude and longitude
-                mymap.setView([newLatitude, newLongitude], 13);
-                L.marker([newLatitude, newLongitude])
-                    .addTo(mymap)
-                    .bindPopup('Your Quote Location')
-                    .openPopup();
-            }
     });
   </script>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<div id="map" style="height: 400px;"></div>
+
+
 
 </body>
 </html>

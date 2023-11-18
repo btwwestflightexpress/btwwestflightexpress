@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve quote</title>
+    <link rel="stylesheet" href="quote.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Add some basic styling */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 2.4rem;
+    }
+
+    .form button{
+  padding: 0.5rem;
+  letter-spacing: 0.2rem;
+  margin: 1rem;
+  background-color: rgb(2, 2, 32);
+  color: #c9c2f8;
+  border-radius: 0.3rem;
+}
+
+.form button a{
+  text-decoration: none;
+  color: #c9c2f8;
+}
+
+    h1{
+  color: rgb(2, 2, 32);
+  padding: 1rem;
+  letter-spacing: 0.5rem;
+  background-color: #c9c2f8;
+  font-size: 19px;
+}
+.form{
+  text-align: left;
+  padding: 2rem;
+  background-color: rgb(219, 219, 233);
+  margin: 1rem;
+  border-radius: 0.2rem;
+  letter-spacing: 0.2rem;
+  font-size: 13px;
+  /* position: absolute; */
+}
+
+.form input{
+  padding: 0.5rem;
+  margin: 0.7rem;
+  width: 80%;
+  letter-spacing: 0.2rem;
+  color: rgb(2, 2, 32);
+  border-radius: 7px;
+  background-color: transparent;
+  border-style: solid;
+}
+
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: rgb(2, 2, 32);
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgb(2, 2, 32);
+      color: whitesmoke;
+    }
+    
+    .show {
+      display: block;
+    }
+
+    .dropbtn{
+        padding: 0.5rem 1rem;
+        background-color: rgb(2, 2, 32);
+        color: whitesmoke;
+        border-style: none;
+    }
+    body{
+      background-color:rgb(2, 2, 32);
+    }
+
+    .sub-header{
+  background-color: #F06868;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+}
+
+p{
+  color: rgb(2, 2, 32);
+  font-family: sans-serif;
+  padding: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+p strong{
+  font-weight: 100;
+}
+
+.nav-bar{
+  background-color: rgba(58.05, 70.10, 93.50, 0.84);
+  display: flex;
+  justify-content: space-between;
+  padding: 1.7rem;
+  font-family: sans-serif;
+}
+
+@media  screen and (min-width: 350px) and (max-width: 850px){
+  body{
+      background-color: rgb(2, 2, 32);
+  }
+  .email{
+      display: none;
+  }
+  /* .nav-list{
+      display: none;
+  } */
+  .logo{
+      font-size: 13px;
+  }
+  .nav-bar{
+      padding: 1rem;
+  }
+  .first-breach marquee{
+      display: none;
+  }
+  .our-services{
+      font-size: 15px;
+      color: #e3e0fa;
+  }
+  .sub-header{
+    background-color: rgb(2, 2, 32);
+    font-size: 8px;
+    height: 1.4rem;
+  }
+  .sub-header img{
+    background-color: #c9c2f8;
+    border-radius: 8px;
+  }
+}
+
+@media screen and (min-width:350px) and (max-width: 500px) {
+  .first-container h2{
+      font-size: 15px;
+      margin-top: -20%;
+  }
+}
+
+@media screen and (min-width:500px) and (max-width: 700px) {
+  .first-container h2{
+      font-size: 10px;
+      margin-top: -10%;
+  }
+  
+}
+
+.logo{
+  display: flex;
+  color: #E7F7F9;
+  font-weight: 700;
+}
+
+.logo .first-logo{
+  color: #F06868;
+  font-family: fantasy;
+}
+
+.nav-list{
+  
+}
+
+.nav-list ul{
+  display: flex;
+  gap: 6rem;
+}
+
+.nav-list ul li{
+  text-decoration: none;
+  list-style: none;
+}
+.nav-list ul li a{
+  text-decoration: none;
+  list-style: none;
+  color: #c7e5e9;
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- end of sub-header -->
+<div class="nav-bar">
+<div class="logo">
+<div class="first-logo">BTW</div>
+westflightexpress
+</div>
+
+<div class="dropdown">
+<button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+<div id="myDropdown" class="dropdown-content">
+    <a href="index.html">Home</a>
+  <a href="login-page.html">Contact us</a>
+</div>
+</div>
+</div>
+
+<script>
+function toggleDropdown() {
+var dropdown = document.getElementById("myDropdown");
+if (dropdown.style.display === "block") {
+dropdown.style.display = "none";
+} else {
+dropdown.style.display = "block";
+}
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+for (var i = 0; i < dropdowns.length; i++) {
+  var openDropdown = dropdowns[i];
+  if (openDropdown.style.display === "block") {
+    openDropdown.style.display = "none";
+  }
+}
+}
+}
+</script>
+</header>
+<body>
+<div class="form">
+  <h2>Edit Quote - Tracking Code: <%= quote.tracking_code %></h2>
+
+  <form action="/quote/<%= quote.tracking_code %>/edit" method="post" id="edit-quote-form">
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude" value="<%= quote.latitude %>"> <br>
+
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude" value="<%= quote.longitude %>">
+
+    <!-- Include the existing form fields for other details, etc. -->
+    <!-- ... -->
+
+    <button type="submit">Update Quote</button>
+  </form>
+</div>
+  <div id="map" style="height: 400px; margin-top: 10rem;"></div>
+
+  <script>
+    function initMap(latitude, longitude) {
+      const mymap = L.map('map').setView([latitude, longitude], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(mymap);
+
+      L.marker([latitude, longitude]).addTo(mymap)
+        .bindPopup('Your Quote Location').openPopup();
+    }
+
+    const initialLatitude = <%= quote.latitude %>;
+    const initialLongitude = <%= quote.longitude %>;
+    initMap(initialLatitude, initialLongitude);
+
+    const latitudeInput = document.getElementById('latitude');
+    const longitudeInput = document.getElementById('longitude');
+
+    latitudeInput.addEventListener('input', function () {
+      updateMap(parseFloat(latitudeInput.value), parseFloat(longitudeInput.value));
+    });
+
+    longitudeInput.addEventListener('input', function () {
+      updateMap(parseFloat(latitudeInput.value), parseFloat(longitudeInput.value));
+    });
+
+    function updateMap(newLatitude, newLongitude) {
+      const mapContainer = document.getElementById('map');
+      mapContainer.innerHTML = '';
+      initMap(newLatitude, newLongitude);
+    }
+  </script>
+
+</body>
+</html>

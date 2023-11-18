@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve quote</title>
+    <link rel="stylesheet" href="quote.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Add some basic styling */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 2.4rem;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: rgb(2, 2, 32);
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgb(2, 2, 32);
+      color: whitesmoke;
+    }
+    
+    .show {
+      display: block;
+    }
+
+    .dropbtn{
+        padding: 0.5rem 1rem;
+        background-color: rgb(2, 2, 32);
+        color: whitesmoke;
+        border-style: none;
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- end of sub-header -->
+<div class="nav-bar">
+<div class="logo">
+<div class="first-logo">BTW</div>
+westflightexpress
+</div>
+
+<div class="dropdown">
+<button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+<div id="myDropdown" class="dropdown-content">
+    <a href="index.html">Home</a>
+  <a href="login-page.html">Contact us</a>
+</div>
+</div>
+</div>
+
+<script>
+function toggleDropdown() {
+var dropdown = document.getElementById("myDropdown");
+if (dropdown.style.display === "block") {
+dropdown.style.display = "none";
+} else {
+dropdown.style.display = "block";
+}
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+for (var i = 0; i < dropdowns.length; i++) {
+  var openDropdown = dropdowns[i];
+  if (openDropdown.style.display === "block") {
+    openDropdown.style.display = "none";
+  }
+}
+}
+}
+</script>
+</header>
+<body>
+  <!-- edit_quote.ejs -->
+  <div class="form">
+<form action="/retrieve-quote" method="post" id="retrieve-quote-form">
+  <label for="trackingCode">Enter Tracking Code:</label>
+  <input type="text" id="trackingCode" name="trackingCode" required>
+  <button type="submit">Retrieve Quote</button>
+</form>
+</div>
+  <!-- Add this script to the bottom of your edit_quote.ejs -->
+<script>
+  const retrieveQuoteForm = document.getElementById('retrieve-quote-form');
+
+  retrieveQuoteForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    
+    const trackingCode = document.getElementById('trackingCode').value;
+
+    // Redirect to the page for editing the retrieved quote
+    window.location.href = '/quote/' + trackingCode + '/edit';
+  });
+</script>
+
+
+</body>
+</html>
