@@ -58,8 +58,8 @@
         <!-- end of sub-header -->
 <div class="nav-bar">
 <div class="logo">
-<div class="first-logo">BTW</div>
-westflightexpress
+    <div class="first-logo"><img src="./shipping css/images/logobt.jpg" alt="" style="width: 3rem; border-radius: 20rem;"></div><br>
+     BTWwestflightexpress
 </div>
 
 <div class="dropdown">
@@ -115,10 +115,10 @@ for (var i = 0; i < dropdowns.length; i++) {
             <input type="text" name="origin" id="origin" required><br>
 
             <label for="origin_state">Origin state</label><br>
-            <input type="text" name="origin_state" id="origin_state" required><br>
+            <input type="text" name="origin_state" id="origin_state" ><br>
 
             <label for="origin_zip_code">Origin zip-code</label><br>
-            <input type="text" name="origin_zip_code" id="origin_zip_code" required>
+            <input type="text" name="origin_zip_code" id="origin_zip_code" >
             <br>
             <br>
             <br>
@@ -135,32 +135,17 @@ for (var i = 0; i < dropdowns.length; i++) {
 
             <label for="destination">Destination</label><br>
             <input type="text" name="destination" id="destination" required><br>
-
-            <label for="destination_state">Destination state</label><br>
-            <input type="text" name="destination_state" id="destination_state" required><br>
-
-            <label for="destination_zip_code">Destination zip-code</label><br>
-            <input type="text" name="destination_zip_code" id="destination_zip_code" required><br>
             <br>
             <br>
             <br>
             <br>
             <h2>Product Details</h2><br><br>
-        
-            <label for="package_name">Package name</label><br>
-            <input type="text" name="package_name" id="package_name" required><br>
 
             <label for="package_type">package type</label><br>
             <input type="text" name="package_type" id="package_type"><br>
 
             <label for="package_weight">Package weight</label><br>
             <input type="text" name="package_weight" id="package_weight" required><br>
-
-            <label for="package_demension">Package dimension</label><br>
-            <input type="text" name="package_demension" id="package_demension"><br>
-
-            <label for="package_number">Package number(count)</label><br>
-            <input type="text" name="package_number" id="package_number" required><br>
 
             <label for="package_password">Package password</label><br>
             <input type="text" name="package_password" id="package_password" required><br>
@@ -191,18 +176,12 @@ for (var i = 0; i < dropdowns.length; i++) {
                 // Get the form input values
                 const senders_name = document.getElementById('senders_name').value;
                 const origin = document.getElementById('origin').value;
-                const origin_state = document.getElementById('origin_state').value;
-                const origin_zip_code = document.getElementById('origin_zip_code').value;
                 const recievers_name = document.getElementById('recievers_name').value;
                 const recievers_phone_number = document.getElementById('recievers_phone_number').value;
                 const recievers_email = document.getElementById('recievers_email').value;
                 const destination = document.getElementById('destination').value;
-                const destination_state = document.getElementById('destination_state').value;
-                const destination_zip_code = document.getElementById('destination_zip_code').value;
-                const package_name = document.getElementById('package_name').value;
                 const package_type = document.getElementById('package_type').value;
                 const package_weight = document.getElementById('package_weight').value;
-                const package_demension = document.getElementById('package_demension').value;
                 const package_number = document.getElementById('package_number').value;
                 const package_password = document.getElementById('package_password').value;
                 const latitude = document.getElementById('latitude').value;
@@ -212,19 +191,12 @@ for (var i = 0; i < dropdowns.length; i++) {
                 const formData = {
                     senders_name: senders_name,
                     origin: origin,
-                    origin_state: origin_state,
-                    origin_zip_code: origin_zip_code,
                     recievers_name: recievers_name,
                     recievers_phone_number: recievers_phone_number,
                     recievers_email: recievers_email,
                     destination: destination,
-                    destination_state: destination_state,
-                    destination_zip_code: destination_zip_code,
-                    package_name: package_name,
                     package_type: package_type,
                     package_weight: package_weight,
-                    package_demension: package_demension,
-                    package_number: package_number,
                     package_password: package_password,
                     latitude: latitude,
                     longitude: longitude,
@@ -259,7 +231,7 @@ for (var i = 0; i < dropdowns.length; i++) {
                         // Handle button click to navigate to the next page
                         proceedButton.addEventListener('click', () => {
                             // window.location.href = `/checkout-receipt.html`;
-                            window.location.href = `/checkout-receipt.html?senders_name=${senders_name}&origin=${origin}&origin_state=${origin_state}&origin_zip_code=${origin_zip_code}&recievers_name=${recievers_name}&recievers_phone_number=${recievers_phone_number}&recievers_email=${recievers_email}&destination=${destination}&destination_state=${destination_state}&destination_zip_code=${destination_zip_code}&package_name=${package_name}&package_type=${package_type}&package_weight=${package_weight}&package_demension=${package_demension}&package_number=${package_number}&tracking_code=${trackingCode}&package_password=${package_password}&latitude=${latitude}&longitude=${longitude}`;
+                            window.location.href = `/checkout-receipt.html?senders_name=${senders_name}&origin=${origin}&recievers_name=${recievers_name}&recievers_phone_number=${recievers_phone_number}&recievers_email=${recievers_email}&destination=${destination}&package_type=${package_type}&package_weight=${package_weight}&tracking_code=${trackingCode}&package_password=${package_password}&latitude=${latitude}&longitude=${longitude}`;
                         });
                     } else {
                         // Handle errors, e.g., show an error message to the user
