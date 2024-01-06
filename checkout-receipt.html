@@ -103,19 +103,12 @@ for (var i = 0; i < dropdowns.length; i++) {
     <p style="box-shadow: 5px 5px 5px black;
     border-top-radius: 5px;"><strong>Sender's Name:</strong> <span id="senders_name"></span></p>
     <p><strong>Origin:</strong> <span id="origin"></span></p>
-    <p><strong>Origin State:</strong> <span id="origin_state"></span></p>
-    <p><strong>Origin Zip-code:</strong> <span id="origin_zip_code"></span></p>
     <p><strong>Reciever's Name:</strong> <span id="recievers_name"></span></p>
     <p><strong>Reciever's Phone number:</strong> <span id="recievers_phone_number"></span></p>
     <p><strong>Reciever's Email:</strong> <span id="recievers_email"></span></p>
     <p><strong>Destination:</strong> <span id="destination"></span></p>
-    <p><strong>Destination State:</strong> <span id="destination_state"></span></p>
-    <p><strong>Destination Zip-code:</strong> <span id="destination_zip_code"></span></p>
-    <p><strong>Package Name:</strong> <span id="package_name"></span></p>
     <p><strong>Package Type:</strong> <span id="package_type"></span></p>
     <p><strong>Package Weight:</strong> <span id="package_weight"></span></p>
-    <p><strong>Package Dimension:</strong> <span id="package_demension"></span></p>
-    <p><strong>Package Number(count):</strong> <span id="package_number"></span></p>
     <p><strong>Tracking code:</strong> <span id="tracking_code"></span></p>
     <p style="box-shadow: 5px 5px 5px black;
     border-bottom-radius: 5px;">
@@ -132,19 +125,12 @@ for (var i = 0; i < dropdowns.length; i++) {
             // Retrieve and display quote details and tracking code
             document.getElementById('senders_name').textContent = urlParams.get('senders_name');
             document.getElementById('origin').textContent = urlParams.get('origin');
-            document.getElementById('origin_state').textContent = urlParams.get('origin_state');
-            document.getElementById('origin_zip_code').textContent = urlParams.get('origin_zip_code');
             document.getElementById('recievers_name').textContent = urlParams.get('recievers_name');
             document.getElementById('recievers_phone_number').textContent = urlParams.get('recievers_phone_number');
             document.getElementById('recievers_email').textContent = urlParams.get('recievers_email');
             document.getElementById('destination').textContent = urlParams.get('destination');
-            document.getElementById('destination_state').textContent = urlParams.get('destination_state');
-            document.getElementById('destination_zip_code').textContent = urlParams.get('destination_zip_code');
-            document.getElementById('package_name').textContent = urlParams.get('package_name');
             document.getElementById('package_type').textContent = urlParams.get('package_type');
             document.getElementById('package_weight').textContent = urlParams.get('package_weight');
-            document.getElementById('package_demension').textContent = urlParams.get('package_demension');
-            document.getElementById('package_number').textContent = urlParams.get('package_number');
             document.getElementById('tracking_code').textContent = urlParams.get('tracking_code');
 
             // Copy tracking code to the clipboard
