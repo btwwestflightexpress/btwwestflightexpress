@@ -97,13 +97,13 @@ pool.promise().getConnection().then((connection) => {
     const quoteData = req.body; // Get quote details from the request
 
     // Insert the quote details into the database
-    const insertQuery = 'INSERT INTO freight_details (senders_name, Origin, origin_state, origin_zip_code, recievers_name, recievers_phone_number, recievers_email, destination, destination_state, destination_zip_code, package_name, package_type, package_weight, package_demension, package_number, tracking_code, package_password, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const insertQuery = 'INSERT INTO freight_details (senders_name, Origin, recievers_name, recievers_phone_number, recievers_email, destination, package_type, package_weight, tracking_code, package_password, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
     // Generate a unique 10-character tracking code
     const trackingCode = generateTrackingCode();
 
     try {
-      const [result] = await pool.promise().query(insertQuery, [quoteData.senders_name, quoteData.origin, quoteData.origin_state, quoteData.origin_zip_code, quoteData.recievers_name, quoteData.recievers_phone_number, quoteData.recievers_email, quoteData.destination, quoteData.destination_state, quoteData.destination_zip_code, quoteData.package_name, quoteData.package_type, quoteData.package_weight, quoteData.package_demension, quoteData.package_number, trackingCode, quoteData.package_password, quoteData.latitude, quoteData.longitude]);
+      const [result] = await pool.promise().query(insertQuery, [quoteData.senders_name, quoteData.origin, quoteData.recievers_name, quoteData.recievers_phone_number, quoteData.recievers_email, quoteData.destination, quoteData.package_type, quoteData.package_weight, trackingCode, quoteData.package_password, quoteData.latitude, quoteData.longitude]);
       console.log('Added new quote');
       res.json({ success: true, trackingCode });
     } catch (error) {
