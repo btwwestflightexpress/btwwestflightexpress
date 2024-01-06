@@ -150,11 +150,11 @@ for (var i = 0; i < dropdowns.length; i++) {
             <label for="package_password">Package password</label><br>
             <input type="text" name="package_password" id="package_password" required><br>
 
-<!--             <label for="latitude">Latitude</label><br>
+            <label for="latitude">Latitude</label><br>
             <input type="number" name="latitude" id="latitude" required><br>
 
             <label for="longitude">Longitude</label><br>
-            <input type="number" name="longitude" id="longitude" required><br> -->
+            <input type="number" name="longitude" id="longitude" required><br>
 
             <button type="submit">Generate quote</button>
             <button type="reset">Cancel</button>
@@ -184,8 +184,8 @@ for (var i = 0; i < dropdowns.length; i++) {
                 const package_weight = document.getElementById('package_weight').value;
                 const package_number = document.getElementById('package_number').value;
                 const package_password = document.getElementById('package_password').value;
-                // const latitude = document.getElementById('latitude').value;
-                // const longitude = document.getElementById('longitude').value;
+                const latitude = document.getElementById('latitude').value;
+                const longitude = document.getElementById('longitude').value;
 
                 // Create an object to represent the quote details
                 const formData = {
@@ -198,8 +198,8 @@ for (var i = 0; i < dropdowns.length; i++) {
                     package_type: package_type,
                     package_weight: package_weight,
                     package_password: package_password,
-                    // latitude: latitude,
-                    // longitude: longitude,
+                    latitude: latitude,
+                    longitude: longitude,
                     // Add other fields as needed
                 };
 
