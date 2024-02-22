@@ -169,7 +169,7 @@ for (var i = 0; i < dropdowns.length; i++) {
                 }).addTo(mymap);
 
                 L.marker([parseFloat(quote.latitude), parseFloat(quote.longitude)]).addTo(mymap)
-                    .bindPopup('Your Freight Location').openPopup();
+                    .bindPopup('Currrent Freight Location').openPopup();
           } else {
             // Show an error message
             quoteDetails.innerHTML = `<p>Error: ${data.message}</p>`;
@@ -181,7 +181,7 @@ for (var i = 0; i < dropdowns.length; i++) {
       });
       function updateMap(newLatitude, newLongitude) {
                 // Update the map with new latitude and longitude
-                mymap.setView([newLatitude, newLongitude], 7);
+                mymap.setView([newLatitude, newLongitude], 4);
                 L.marker([newLatitude, newLongitude])
                     .addTo(mymap)
                     .bindPopup('Your Quote Location')
