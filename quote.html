@@ -164,7 +164,7 @@ for (var i = 0; i < dropdowns.length; i++) {
             `;
 
               document.addEventListener("DOMContentLoaded", function() {
-    const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 13);
+    const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 6);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
