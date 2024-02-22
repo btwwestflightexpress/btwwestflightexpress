@@ -176,7 +176,7 @@ for (var i = 0; i < dropdowns.length; i++) {
                 }).addTo(mymap);
 
                 L.marker([parseFloat(quote.latitude), parseFloat(quote.longitude)]).addTo(mymap)
-                    .bindPopup('Your Quote Location').openPopup();
+                    .bindPopup('Freight current location').openPopup();
           } else {
             // Show an error message
             quoteDetails.innerHTML = `<p>Error: ${data.message}</p>`;
