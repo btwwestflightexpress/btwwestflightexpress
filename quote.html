@@ -169,7 +169,7 @@ for (var i = 0; i < dropdowns.length; i++) {
               <p><strong>Longitude:</strong> ${quote.longitude}</p>
               
             `;
-            const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 13);
+            const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 7);
 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap contributors'
@@ -188,7 +188,7 @@ for (var i = 0; i < dropdowns.length; i++) {
       });
       function updateMap(newLatitude, newLongitude) {
                 // Update the map with new latitude and longitude
-                mymap.setView([newLatitude, newLongitude], 13);
+                mymap.setView([newLatitude, newLongitude], 7);
                 L.marker([newLatitude, newLongitude])
                     .addTo(mymap)
                     .bindPopup('Freight current Location')
