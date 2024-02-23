@@ -151,19 +151,12 @@ for (var i = 0; i < dropdowns.length; i++) {
               <br>
               <p><strong>Sender's Name:</strong> ${quote.senders_name}</p>
               <p><strong>Origin:</strong> ${quote.Origin}</p>
-              // <p><strong>Origin State:</strong> ${quote.origin_state}</p>
-              // <p><strong>Origin Zip-code:</strong> ${quote.origin_zip_code}</p>
               <p><strong>Reciever's Name:</strong> ${quote.recievers_name}</p>
               <p><strong>Recievers Phone number:</strong> ${quote.recievers_phone_number}</p>
               <p><strong>Reciever's Email:</strong> ${quote.recievers_email}</p>
               <p><strong>Destination:</strong> ${quote.destination}</p>
-              // <p><strong>Destination State:</strong> ${quote.destination_state}</p>
-              // <p><strong>Destination Zip-code:</strong> ${quote.destination_zip_code}</p>
-              // <p><strong>Package Name:</strong> ${quote.package_name}</p>
               <p><strong>Package Type:</strong> ${quote.package_type}</p>
               <p><strong>Package Weight:</strong> ${quote.package_weight}</p>
-              // <p><strong>Package Dimension:</strong> ${quote.package_demension}</p>
-              // <p><strong>Package Number:</strong> ${quote.package_number}</p>
               <p><strong>Tracking Code:</strong> ${quote.tracking_code}</p>
               <p><strong>Latitude:</strong> ${quote.latitude}</p>
               <p><strong>Longitude:</strong> ${quote.longitude}</p>
@@ -176,7 +169,7 @@ for (var i = 0; i < dropdowns.length; i++) {
                 }).addTo(mymap);
 
                 L.marker([parseFloat(quote.latitude), parseFloat(quote.longitude)]).addTo(mymap)
-                    .bindPopup('Freight current location').openPopup();
+                    .bindPopup('Freight's last recorded location').openPopup();
           } else {
             // Show an error message
             quoteDetails.innerHTML = `<p>Error: ${data.message}</p>`;
