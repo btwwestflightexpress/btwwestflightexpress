@@ -169,14 +169,14 @@ for (var i = 0; i < dropdowns.length; i++) {
               <p><strong>Longitude:</strong> ${quote.longitude}</p>
               
             `;
-            const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 6);
+            const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 13);
 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap contributors'
                 }).addTo(mymap);
 
                 L.marker([parseFloat(quote.latitude), parseFloat(quote.longitude)]).addTo(mymap)
-                    .bindPopup('Freight's last recorded location').openPopup();
+                    .bindPopup('Your Quote Location').openPopup();
           } else {
             // Show an error message
             quoteDetails.innerHTML = `<p>Error: ${data.message}</p>`;
@@ -188,7 +188,7 @@ for (var i = 0; i < dropdowns.length; i++) {
       });
       function updateMap(newLatitude, newLongitude) {
                 // Update the map with new latitude and longitude
-                mymap.setView([newLatitude, newLongitude], 6);
+                mymap.setView([newLatitude, newLongitude], 13);
                 L.marker([newLatitude, newLongitude])
                     .addTo(mymap)
                     .bindPopup('Freight current Location')
