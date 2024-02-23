@@ -100,7 +100,7 @@ for (var i = 0; i < dropdowns.length; i++) {
 </script>
 </header>
 
-  <h1>Retrieve Your Quote</h1>
+  <h1>Track Freight</h1>
 <div class="form">
   <form id="retrieve-form">
     <label for="trackingCode">Tracking Code:</label>
@@ -111,7 +111,7 @@ for (var i = 0; i < dropdowns.length; i++) {
     <input type="password" id="package_password" name="package_password" required>
     <br>
 
-    <button type="submit">Retrieve Quote</button>
+    <button type="submit">Track freight</button>
   </form>
 </div>
 <div class="form">
@@ -147,7 +147,7 @@ for (var i = 0; i < dropdowns.length; i++) {
 
             // Display quote details
             quoteDetails.innerHTML = `
-              <h2>Quote Details</h2>
+              <h2>Freight Details</h2>
               <br>
               <p><strong>Sender's Name:</strong> ${quote.senders_name}</p>
               <p><strong>Origin:</strong> ${quote.Origin}</p>
@@ -169,14 +169,14 @@ for (var i = 0; i < dropdowns.length; i++) {
               <p><strong>Longitude:</strong> ${quote.longitude}</p>
               
             `;
-            const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 13);
+            const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 5);
 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap contributors'
                 }).addTo(mymap);
 
                 L.marker([parseFloat(quote.latitude), parseFloat(quote.longitude)]).addTo(mymap)
-                    .bindPopup('Your Quote Location').openPopup();
+                    .bindPopup('Freight's last recorded location').openPopup();
           } else {
             // Show an error message
             quoteDetails.innerHTML = `<p>Error: ${data.message}</p>`;
@@ -188,7 +188,7 @@ for (var i = 0; i < dropdowns.length; i++) {
       });
       function updateMap(newLatitude, newLongitude) {
                 // Update the map with new latitude and longitude
-                mymap.setView([newLatitude, newLongitude], 13);
+                mymap.setView([newLatitude, newLongitude], 5);
                 L.marker([newLatitude, newLongitude])
                     .addTo(mymap)
                     .bindPopup('Freight current Location')
