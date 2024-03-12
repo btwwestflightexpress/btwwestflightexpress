@@ -16,11 +16,11 @@ app.use(express.static(__dirname));
 
 // Move the pool variable outside the connection callback
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'buuedht0tchqebrkwamg-mysql.services.clever-cloud.com',
-  user: process.env.DB_USER || 'u1fbdrbtv5dvzads',
-  password: process.env.DB_PASSWORD || '9lFiBkpEzHV9RwLkdKx',
-  database: process.env.DB_NAME || 'buuedht0tchqebrkwamg',
-  port: process.env.DB_PORT || 21667,
+  host: process.env.DB_HOST || 'b84im089smflkoil0h9i-mysql.services.clever-cloud.com',
+  user: process.env.DB_USER || 'ue89upmefrlabydp',
+  password: process.env.DB_PASSWORD || 'n1Q03IkSdeUSvCZyg30A',
+  database: process.env.DB_NAME || 'b84im089smflkoil0h9i',
+  port: process.env.DB_PORT || 3306,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
