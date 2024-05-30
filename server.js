@@ -113,7 +113,7 @@ pool.promise().getConnection().then((connection) => {
   });
 
   // Retrieve Quote
-  app.post('/retrieve-', async (req, res) => {
+  app.post('/retrieve-quote', async (req, res) => {
     const { tracking_code, package_password } = req.body; // Get tracking code and package_password
 
     // Query the database to retrieve the quote details
@@ -135,7 +135,7 @@ pool.promise().getConnection().then((connection) => {
   });
 
   // Route to display an existing quote for editing
-  //app.get('/quote/:trackingCode/edit', async (req, res) => {
+  app.get('/quote/:trackingCode/edit', async (req, res) => {
     const trackingCode = req.params.trackingCode;
     try {
       // Fetch quote details from the database based on trackingCode
