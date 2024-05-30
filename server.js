@@ -113,7 +113,7 @@ pool.promise().getConnection().then((connection) => {
   });
 
   // Retrieve Quote
-  app.post('/retrieve-quote', async (req, res) => {
+  app.post('/retrieve-', async (req, res) => {
     const { tracking_code, package_password } = req.body; // Get tracking code and package_password
 
     // Query the database to retrieve the quote details
