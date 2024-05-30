@@ -135,7 +135,7 @@ pool.promise().getConnection().then((connection) => {
   });
 
   // Route to display an existing quote for editing
-  app.get('/quote/:trackingCode/edit', async (req, res) => {
+  //app.get('/quote/:trackingCode/edit', async (req, res) => {
     const trackingCode = req.params.trackingCode;
     try {
       // Fetch quote details from the database based on trackingCode
