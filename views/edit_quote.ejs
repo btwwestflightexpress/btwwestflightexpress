@@ -274,7 +274,7 @@ for (var i = 0; i < dropdowns.length; i++) {
   <div id="map" style="height: 400px; margin-top: 10rem;"></div>
 
   <script>
-   // function initMap(latitude, longitude) {
+    function initMap(latitude, longitude) {
       const mymap = L.map('map').setView([latitude, longitude], 13);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -285,8 +285,8 @@ for (var i = 0; i < dropdowns.length; i++) {
         .bindPopup('Your Quote Location').openPopup();
     }
 
-  //  const initialLatitude = <%= quote.latitude %>;
-   // const initialLongitude = <%= quote.longitude %>;
+   const initialLatitude = <%= quote.latitude %>;
+   const initialLongitude = <%= quote.longitude %>;
     initMap(initialLatitude, initialLongitude);
 
     const latitudeInput = document.getElementById('latitude');
@@ -300,7 +300,7 @@ for (var i = 0; i < dropdowns.length; i++) {
       updateMap(parseFloat(latitudeInput.value), parseFloat(longitudeInput.value));
     });
 
-   // function updateMap(newLatitude, newLongitude) {
+   function updateMap(newLatitude, newLongitude) {
       const mapContainer = document.getElementById('map');
       mapContainer.innerHTML = '';
       initMap(newLatitude, newLongitude);
