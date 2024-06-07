@@ -117,9 +117,9 @@ for (var i = 0; i < dropdowns.length; i++) {
   </div>
 </div>
   <script>
-    //document.addEventListener('DOMContentLoaded', function () {
-      //const retrieveForm = document.getElementById('retrieve-form');
-     // const quoteDetails = document.getElementById('quote-details');
+    document.addEventListener('DOMContentLoaded', function () {
+      const retrieveForm = document.getElementById('retrieve-form');
+      const quoteDetails = document.getElementById('quote-details');
 
       retrieveForm.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -127,7 +127,7 @@ for (var i = 0; i < dropdowns.length; i++) {
         const tracking_code = document.getElementById('tracking_code').value;
         const package_password = document.getElementById('package_password').value;
 
-        //fetch('/retrieve-quote', {
+        fetch('/retrieve-quote', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
