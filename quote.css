@@ -7,6 +7,7 @@
   
   body{
     background-color: rgb(22, 0, 83);
+    font-family: "poppins" sans-serif;
   }
   
   .sub-header{
@@ -41,6 +42,7 @@
   @media  screen and (min-width: 350px) and (max-width: 850px){
     body{
         background-color:rgb(22, 0, 83);
+        font-family: "poppins" sans-serif;
     }
     .email{
         display: none;
@@ -117,7 +119,7 @@
     color: #c7e5e9;
   }
   
-  h1{
+  h2{
     color: rgb(2, 2, 32);
     padding: 1rem;
     letter-spacing: 0.09rem;
@@ -182,10 +184,10 @@
   .quote-details{
     text-align: left;
     padding: 2rem;
-    background-color: #c9c2f8;
+    background-color: #ffffff;
     margin: 1rem;
     border-radius: 0.2rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.09rem;
     font-size: 13px;
   }
 
@@ -213,4 +215,48 @@
 .glow-button:hover {
     box-shadow: 0 0 40px #F06868, 0 0 80px #1e90ff, 0 0 120px #1e90ff;
     transform: scale(1.05);
+}
+
+
+.card {
+    position: fixed;
+    top: 200px; /* Start above the screen */
+    right: 10px;
+    width: 250px;
+    background-color: #1e90ff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    transition: top 0.5s ease;
+    z-index: 1000;
+    
+}
+
+.card p {
+    margin: 0;
+    font-size: 15px;
+    font-family: "poppins" sans-serif;
+    color: white;
+    letter-spacing: 0.09rem;
+}
+
+.card  img{
+    width: 3rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: #F06868;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    color: red;
 }

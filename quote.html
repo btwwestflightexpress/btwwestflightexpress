@@ -125,12 +125,22 @@ const menuBtn = document.querySelector('.menu-btn');
             topMenu.classList.remove('active');
             overlay.classList.remove('active');
         });
+
+       
+
 </script>
 </header>
 
-  <h1>Track freight Quote</h1>
-  <br><br><br>
+  <h2>Track freight</h2>
+  <br><br>
+  
 <div class="form">
+    <div id="welcome-card" class="card">
+        <button id="close-btn" class="close-btn">&times;</button><br>
+        <p>Welcome! <br> please note that the current location of your freight displayed on the map is retrieved from the latest server and map refresh.</p>
+        <img src="https://em-content.zobj.net/source/facebook/230/information-source_2139.png" alt="">
+        <br>
+    </div>
     <h1>Track</h1>
   <form id="retrieve-form">
     
@@ -225,6 +235,19 @@ const menuBtn = document.querySelector('.menu-btn');
                     .openPopup();
             }
     });
+
+
+
+
+    window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('welcome-card').style.top = '20px';
+    }, 7000); // 5 seconds
+
+    document.getElementById('close-btn').addEventListener('click', () => {
+        document.getElementById('welcome-card').style.display = 'none';
+    });
+});
   </script>
 
 </body>
