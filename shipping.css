@@ -148,13 +148,14 @@ p{
     border-radius: 10px;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 0 20px #1e90ff, 0 0 40px  #F06868, 0 0 60px #1e90ff;
+    box-shadow: 0 0 10px #1e90ff, 0 0 20px  #F06868, 0 0 40px #1e90ff;
     transition: all 0.3s ease-in-out;
     outline: none;
 }
 
 .glow-button a{
     color: white;
+    font-size: 15px;
 }
 
 .glow-button:hover {
@@ -836,7 +837,7 @@ footer .footer1{
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 0 5px #1e90ff, 0 0 1px  #F06868, 0 0 15px #1e90ff;
+    box-shadow: 0 0 5px #1e90ff, 0 0 10px  #F06868, 0 0 15px #1e90ff;
     margin-left: 50%;
 }
 
