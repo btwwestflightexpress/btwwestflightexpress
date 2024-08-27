@@ -8,7 +8,7 @@
 
 body{
     /* background-color: rgb(2, 2, 32); */
-    background-color: #a5a5a5;
+    background-color: #ffffff;
 }
 .sub-header{
     background-color: #F06868;
@@ -36,7 +36,7 @@ p{
 
 @media  screen and (min-width: 350px) and (max-width: 850px){
     body{
-        background-color: #e4e4e4;
+        background-color: #ffffff;
     }
     .email{
         display: none;
@@ -140,7 +140,7 @@ p{
 }
 
 .glow-button {
-    padding: 15px 20px;
+    padding: 15px ;
     font-size: 13px;
     color: white;
     background-color: #1e90ff;
@@ -155,7 +155,7 @@ p{
 
 .glow-button a{
     color: white;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .glow-button:hover {
@@ -172,7 +172,7 @@ p{
     border-radius: 10px;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 0 20px #1e90ff, 0 0 40px  #F06868, 0 0 60px #1e90ff;
+    box-shadow: 0 0 10px #1e90ff, 0 0 20px  #F06868, 0 0 40px #1e90ff;
     transition: all 0.3s ease-in-out;
     outline: none;
     margin-top: 1rem;
@@ -215,9 +215,10 @@ p{
 
 .second-container{
     padding: 0 ;
+    border-radius: 3rem;
     margin: 0.5rem 4rem;
     background-color: whitesmoke;
-    box-shadow: 2px 2px 10px rgb(92, 92, 92);
+    box-shadow: 2px 2px 10px rgba(0, 30, 255, 0.185);
     
 }
 
@@ -403,7 +404,7 @@ p{
     border-radius: 10px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    box-shadow: 7px 7px 7px rgba(0, 30, 255, 0.185);
+    box-shadow: 2px 2px 10px rgba(0, 30, 255, 0.185);
     text-align: left;
 }
 
@@ -832,13 +833,13 @@ footer .footer1{
 }
 
 .earth-container {
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
     overflow: hidden;
     position: relative;
     box-shadow: 0 0 5px #1e90ff, 0 0 10px  #F06868, 0 0 15px #1e90ff;
-    margin-left: 50%;
+    margin-left: 59%;
 }
 
 .earth {
