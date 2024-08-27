@@ -14,45 +14,67 @@
         rel="stylesheet">
 
     <style>
-        /* Add some basic styling */
-        .dropdown {
-            position: relative;
-            display: inline-block;
+        .menu-btn {
+            position: fixed;
+            top: 27px;
+            right: 20px;
+            z-index: 1001;
+            font-size: 30px;
             cursor: pointer;
-            margin-right: 2.4rem;
+            color: white;
+            font-size: 15px;
         }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+        /* Sliding Menu */
+        .top-menu {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.782);
+            padding-top: 60px;
+            transition: 0.3s;
+            z-index: 1000;
         }
 
-        .dropdown-content a {
-            padding: 12px 16px;
+        .top-menu a {
+            padding: 10px 15px;
             text-decoration: none;
+            font-size: 15px;
+            color: white;
             display: block;
-            color: rgb(2, 2, 32);
+            transition: 0.3s;
         }
 
-        .dropdown-content a:hover {
-            background-color: rgb(2, 2, 32);
-            color: whitesmoke;
+        .top-menu a:hover {
+            background-color: #575757;
         }
 
-        .show {
-            display: block;
+        /* Overlay for background when menu is open */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 999;
         }
 
-        .dropbtn {
-            padding: 0.5rem 1rem;
-            background-color: rgb(2, 2, 32);
-            color: whitesmoke;
-            border-style: none;
+        /* Show menu and overlay */
+        .top-menu.active {
+            top: 0;
         }
+
+        .overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        
     </style>
 </head>
 
@@ -65,52 +87,33 @@
                 <div class="first-logo"><img src="./shipping css/images/logobt.jpg" alt="" style="width: 3rem; border-radius: 20rem;"></div><br>
                 BTWwestflightexpress
             </div>
+            <span class="menu-btn">&#9776; Menu</span>
 
-            <div class="dropdown">
-                <button onclick="toggleDropdown()" class="dropbtn">Menu</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="quote.html">Track</a>
+    <!-- Sliding Menu -->
+    <div class="top-menu" id="topMenu">
+       
+        <a href="quote.html">Track</a>
                     <a href="login-page.html">Sign in</a>
                     <a href="index.html">Our services</a>
+        <a href="#">Contact</a>
+    </div>
 
-                </div>
-            </div>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
         </div>
 
-        <script>
-            function toggleDropdown() {
-                var dropdown = document.getElementById("myDropdown");
-                if (dropdown.style.display === "block") {
-                    dropdown.style.display = "none";
-                } else {
-                    dropdown.style.display = "block";
-                }
-            }
-
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function (event) {
-                if (!event.target.matches('.dropbtn')) {
-                    var dropdowns = document.getElementsByClassName("dropdown-content");
-                    for (var i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.style.display === "block") {
-                            openDropdown.style.display = "none";
-                        }
-                    }
-                }
-            }
-        </script>
     </header>
     <!-- End of header -->
     <div class="first-container">
-        <img src="./shipping css/images/worldmap.png" alt=""
-            style="width: 100%; padding: 0; margin: 0; height: 23rem; background-color: rgb(5, 0, 19); margin-top: 4rem; ">
+        <img src="https://github.com/btwwestflightexpress/btwwestflightexpress/blob/main/shipping%20css/images/worldmap.png?raw=true" alt=""
+            style="width: 100%; padding: 0; height: 23rem; background-color: rgb(22, 0, 83); margin-top: 3.5rem; margin-bottom: -12rem;">
         <p>
         <h2 class="text1">Leaders of Innovation <br> Masters in craft when it comes to Logistics <br>
             <p style="color: #F06868; font-size: 17px;">Your patner in shipping success</p><br>
-            <button
-                style="padding: 0.5rem; background-color: whitesmoke; border-style: none; border-radius: 40px; height: -5px; box-shadow: 3px 3px 10px black;"><a
-                    href="quote.html" style="text-decoration: none; color: rgb(5, 0, 19);">Track freight</a></button>
+            
+                    <button class="glow-button"><a
+                        href="quote.html" style="text-decoration: none;">Track freight</a></button>
         </h2>
         </p>
 
@@ -119,13 +122,17 @@
 
 
     </div>
+    <div class="earth-container">
+        <div class="earth"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb7Uayrt8D3uYIJW5ImWbBJQYw2UTCX0ScHg&s" alt=""></div>
+    </div>
+    
 
     <!-- end of first-breach -->
     <div class="our-services" style="color: #F06868;">
         Our Services
     </div>
     <div class="second-container">
-        <img src="./shipping css/images/pngfind.com-grua-png-4234790.png" alt="" style="width: 100%; height: 13rem;">
+        <!-- <img src="./shipping css/images/pngfind.com-grua-png-4234790.png" alt="" style="width: 100%; height: 13rem;"> -->
         <div class="tabs1" id="myCard">
             <div class="tab-quick">
                 <p class="first-text">Quick Quotes</p>
@@ -202,7 +209,7 @@
                     <br>Experience hassle-free shipping with BTWwestflight Express Your Partner in Shipping Success!"
                 </div> <br>
                 <a href="login-page.html"><button
-                        style="padding: 0.7rem; border-radius: 30px; border-style: none; color: #e2e2e2; font-weight: 700; background-color: #F06868;">Track
+                    class="glow-button">Track
                         freight</button></a>
             </div>
             <script>
@@ -221,7 +228,7 @@
     </div>
     <!--end of second container-->
     <br><br><br><br>
-    <div class="breach" style="background-color: rgb(5, 0, 19); padding: 1rem 1rem;">
+    <div class="breach" style="background-color: rgb(22, 0, 83); padding: 1rem 1rem;">
         <div class="logo">
             <div class="first-logo">BTW</div>
             westflightexpress
@@ -235,7 +242,7 @@
                     <h4 style="color: #F06868;">NOTE |</h4>Freight shipping rates are dependent on company rates <br>
                     and shipping tax rate
                 </div>
-            </div>
+            </div><br>
 
             <div class="tabs">
                 <div class="tab1">
@@ -247,9 +254,9 @@
                             Proffessional 2041 Wholesale supplier from <br> China <br><br>
                             <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.5 = 2.0kg</p>
                             <br>
-                            <em>Looking for a fast and less congested route <br>and agents, your should take advantage
+                            <em>Looking for a fast and less congested route and agents, your should take advantage
                                 of.... </em>
-                            <div class="contact-btn"><a href="login-page.html"><button
+                            <div ><a href="login-page.html"><button class="glow-button2"
                                         onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                         </div>
                     </div>
@@ -268,8 +275,8 @@
                             Proffessional 2041 Wholesale supplier from <br> Africa <br><br>
                             <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.2 = 2.0kg</p>
                             <br>
-                            <em>We deliver to all parts of the world <br>Our customers are safety insured.... </em>
-                            <div class="contact-btn"><a href="login-page.html"><button
+                            <em>We deliver to all parts of the world. Our customers are safety insured.... </em>
+                            <div><a href="login-page.html"><button class="glow-button2"
                                         onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                         </div>
                     </div>
@@ -287,10 +294,9 @@
                             Proffessional 2041 Wholesale supplier from <br> England <br><br>
                             <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.7 = 2.0kg</p>
                             <br>
-                            <em>Kimberlay and sons, founded in the early 80s <br>is known for its vasatility,
-                                flexibility and customer <br> satisfaction. <br>we ship to all parts of the world
-                                with.... </em>
-                            <div class="contact-btn"><a href="login-page.html"><button
+                            <em>Kimberlay and sons, founded in the early 80s is known for its vasatility,
+                                 </em>
+                            <div ><a href="login-page.html"><button class="glow-button2"
                                         onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                         </div>
                     </div>
@@ -310,9 +316,9 @@
                             Proffessional 2041 Wholesale supplier from <br> USA <br><br>
                             <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.5 = 2.0kg</p>
                             <br>
-                            <em>Looking for a fast and less congested route <br>and agents, your should take advantage
+                            <em>Looking for a fast and less congested route and agents, your should take advantage
                                 of.... </em>
-                            <div class="contact-btn"><a href="login-page.html"><button
+                            <div><a href="login-page.html"><button class="glow-button2"
                                         onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                         </div>
                     </div>
@@ -330,9 +336,9 @@
                             Proffessional 2041 Wholesale supplier from <br> Mexico <br><br>
                             <p style="-weight: bold; color: rgb(2, 2, 32);">US $ - 3.2 = 3.0kg</p>
                             <br>
-                            <em>Take your shipping experience to the next level. <br>Work with our international port
-                                union branches <br> and have <br>your freight at your door step. With.... </em>
-                            <div class="contact-btn"><a href="login-page.html"><button
+                            <em>Take your shipping experience to the next level. Work with our international port
+                                 </em>
+                            <div ><a href="login-page.html"><button class="glow-button2"
                                         onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                         </div>
                     </div>
@@ -350,9 +356,9 @@
                             Proffessional 2041 Wholesale supplier from <br> Australia <br><br>
                             <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 3.00 = 2.0kg</p>
                             <br>
-                            <em>Looking for a fast and less congested route <br>and agents, your should take advantage
+                            <em>Looking for a fast and less congested route and agents, your should take advantage
                                 of.... </em>
-                            <div class="contact-btn"><a href="login-page.html"><button
+                            <div ><a href="login-page.html"><button class="glow-button2"
                                         onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
                         </div>
                     </div>
@@ -656,8 +662,36 @@
                 2002 copyrights (All rights reserved)
             </div>
         </footer>
+        <script>
+            const menuBtn = document.querySelector('.menu-btn');
+        const topMenu = document.getElementById('topMenu');
+        const overlay = document.getElementById('overlay');
+
+        // Toggle Menu and Overlay
+        menuBtn.addEventListener('click', () => {
+            topMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close Menu when clicking outside
+        overlay.addEventListener('click', () => {
+            topMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        </script>
         
         <!-- <script src="//code.tidio.co/c3u6inqchllvaycdalhg5sqldo6ayjan.js" async></script> -->
 </body>
 
 </html>
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information

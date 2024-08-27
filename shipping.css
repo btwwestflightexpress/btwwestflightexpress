@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "poppins" sans-serif;
+    font-size: 16px;
 }
 
 body{
@@ -23,7 +24,7 @@ p{
 }
 
 .nav-bar{
-    background-color: rgb(25, 38, 66);
+    background-color: rgb(22, 0, 83);
     display: flex;
     justify-content: space-between;
     padding: 1.7rem;
@@ -118,22 +119,71 @@ p{
     width: 100%;
     padding: 0;
     margin: 0;
+    margin-bottom: -5rem;
 }
 
 .first-container .img{
     width: 100%;
+    margin-bottom: -10rem;
 }
 
 .text1{
     color: #E7F7F9;
-    position: absolute;
+    position: ;
     top: 13rem;
     /* left: 55rem; */
     padding: 2rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.09em;
     text-align: left;
     text-shadow: 5px 5px 5px rgba(1, 13, 36, 0.84);
-    line-height: 2.5rem;
+    line-height: 2rem;
+}
+
+.glow-button {
+    padding: 15px 20px;
+    font-size: 13px;
+    color: white;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 20px #1e90ff, 0 0 40px  #F06868, 0 0 60px #1e90ff;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+}
+
+.glow-button a{
+    color: white;
+}
+
+.glow-button:hover {
+    box-shadow: 0 0 40px #F06868, 0 0 80px #1e90ff, 0 0 120px #1e90ff;
+    transform: scale(1.05);
+}
+
+.glow-button2 {
+    padding: 10px ;
+    font-size: 13px;
+    color: white;
+    background-color: #F06868;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 20px #1e90ff, 0 0 40px  #F06868, 0 0 60px #1e90ff;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    margin-top: 1rem;
+}
+
+.glow-button2 a{
+    color: white;
+}
+
+.glow-button2:hover {
+    box-shadow: 0 0 40px #F06868, 0 0 80px #1e90ff, 0 0 120px #1e90ff;
+    transform: scale(1.05);
 }
 
 .first-breach{
@@ -347,12 +397,12 @@ p{
 .sub-container{
     /* background-color: rgba(58.05, 70.10, 93.50, 0.84); */
     /* background: linear-gradient(111deg, rgba(104.46, 119.91, 149.90, 0.84) 0%, rgba(39.15, 46.82, 61.71, 0.84) 42%, rgba(58.05, 70.10, 93.50, 0.84) 72%, rgba(80.90, 91.71, 112.71, 0.84) 100%); */
-    background: linear-gradient(111deg, rgba(0, 5, 61, 0.84) 0%, rgb(151, 164, 193) 42%, rgb(143, 171, 227) 72%, rgb(207, 156, 227) 100%);
+    background: linear-gradient(111deg, rgba(230, 231, 252, 0.84) 0%, rgb(151, 164, 193) 42%, rgb(255, 255, 255) 72%, rgb(157, 156, 227) 100%);
     padding: 2rem 3rem;
     border-radius: 10px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 7px 7px 7px rgba(0, 30, 255, 0.185);
     text-align: left;
 }
 
@@ -494,8 +544,8 @@ p{
     .tabs .tab1{
         /* width: max-content; */
         margin-left: 10%;
-        height: 27rem;
-        box-shadow: 5px 5px 8px black;
+        height: 30rem;
+        box-shadow: 5px 5px 8px rgba(0, 30, 255, 0.185);
     }
     .third-container{
         padding: 1rem;
@@ -522,13 +572,15 @@ p{
     width: fit-content;
     border-radius: 15px;
     width: 80%;
-    background: linear-gradient(111deg, rgba(255, 255, 255, 0.84) 0%, rgb(152, 162, 184) 42%, rgb(69, 60, 146) 72%, rgb(5, 0, 19) 100%);
+    height: 35rem;
+    background: linear-gradient(111deg, rgba(255, 255, 255, 0.84) 0%, rgb(198, 216, 255) 42%, rgb(255, 255, 255) 72%, rgb(255, 255, 255) 100%);
 }
 
 .tabs .tab1 .tab-text{
     padding: 2rem;
     text-align: left;
     color: rgb(2, 2, 32);
+    width: 250px;
 }
 
 .third-container .tabs .tab1 .tab-text{
@@ -612,6 +664,7 @@ p{
         
     }
 }
+
 @media screen and (min-width: 350px) and (max-width: 850px){
     .video{
         justify-self: center;
@@ -775,5 +828,42 @@ footer .footer1{
         font-size: 11px;
     }
 }
+}
 
+.earth-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 5px #1e90ff, 0 0 1px  #F06868, 0 0 15px #1e90ff;
+    margin-left: 50%;
+}
 
+.earth {
+    width: 100%;
+    height: 100%;
+    background-image: url('earth-map.jpg'); /* Replace with your Earth image */
+    background-size: cover;
+    border-radius: 50%;
+    animation: rotateEarth 17s linear infinite;
+}
+
+@keyframes rotateEarth {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+    @media  screen and (min-width: 850px) and (max-width: 1440px){
+        .earth-container {
+            display: none;
+        }
+
+        .first-container{
+            margin-bottom: 7rem;
+        }
+    }
