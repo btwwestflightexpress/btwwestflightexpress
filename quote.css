@@ -183,12 +183,16 @@
   
   .quote-details{
     text-align: left;
-    padding: 2rem;
+    padding: 1rem;
     background-color: #ffffff;
-    margin: 1rem;
+    margin: 0.5rem;
     border-radius: 0.2rem;
     letter-spacing: 0.09rem;
     font-size: 13px;
+  }
+
+  .quote-details p{
+
   }
 
 

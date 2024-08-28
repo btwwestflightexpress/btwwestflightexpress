@@ -189,24 +189,24 @@ const menuBtn = document.querySelector('.menu-btn');
             quoteDetails.innerHTML = `
               <h2>Quote Details</h2>
               <br>
-              <p><strong>Sender's Name:</strong> ${quote.senders_name}</p>
-              <p><strong>Origin:</strong> ${quote.Origin}</p>
-              <p><strong>Origin State:</strong> ${quote.origin_state}</p>
-              <p><strong>Origin Zip-code:</strong> ${quote.origin_zip_code}</p>
-              <p><strong>Reciever's Name:</strong> ${quote.recievers_name}</p>
-              <p><strong>Recievers Phone number:</strong> ${quote.recievers_phone_number}</p>
-              <p><strong>Reciever's Email:</strong> ${quote.recievers_email}</p>
-              <p><strong>Destination:</strong> ${quote.destination}</p>
-              <p><strong>Destination State:</strong> ${quote.destination_state}</p>
-              <p><strong>Destination Zip-code:</strong> ${quote.destination_zip_code}</p>
-              <p><strong>Package Name:</strong> ${quote.package_name}</p>
-              <p><strong>Package Type:</strong> ${quote.package_type}</p>
-              <p><strong>Package Weight:</strong> ${quote.package_weight}</p>
-              <p><strong>Package Dimension:</strong> ${quote.package_demension}</p>
-              <p><strong>Package Number:</strong> ${quote.package_number}</p>
-              <p><strong>Tracking Code:</strong> ${quote.tracking_code}</p>
-              <p><strong>Latitude:</strong> ${quote.latitude}</p>
-              <p><strong>Longitude:</strong> ${quote.longitude}</p>
+              <p><strong>Sender's Name:</strong> <br> ${quote.senders_name}</p>
+              <p><strong>Origin:</strong> <br> ${quote.Origin}</p>
+              <p><strong>Origin State:</strong> <br> ${quote.origin_state}</p>
+              <p><strong>Origin Zip-code:</strong> <br> ${quote.origin_zip_code}</p>
+              <p><strong>Reciever's Name:</strong> <br> ${quote.recievers_name}</p>
+              <p><strong>Recievers Phone number:</strong> <br> ${quote.recievers_phone_number}</p>
+              <p><strong>Reciever's Email:</strong> <br> ${quote.recievers_email}</p>
+              <p><strong>Destination:</strong> <br> ${quote.destination}</p>
+              <p><strong>Destination State:</strong> <br> ${quote.destination_state}</p>
+              <p><strong>Destination Zip-code:</strong> <br> ${quote.destination_zip_code}</p>
+              <p><strong>Package Name:</strong> <br> ${quote.package_name}</p>
+              <p><strong>Package Type:</strong> <br> ${quote.package_type}</p>
+              <p><strong>Package Weight:</strong> <br> ${quote.package_weight}</p>
+              <p><strong>Package Dimension:</strong> <br> ${quote.package_demension}</p>
+              <p><strong>Package Number:</strong> <br> ${quote.package_number}</p>
+              <p><strong>Tracking Code:</strong> <br> ${quote.tracking_code}</p>
+              <p><strong>Latitude:</strong> <br> ${quote.latitude}</p>
+              <p><strong>Longitude:</strong> <br> ${quote.longitude}</p>
               
             `;
              const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 6);
