@@ -3,53 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTWwestflightexp</title>
+    <title>BTWwestflightexp dashboard</title>
+    <meta name="theme-color" content="#1e90ff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Your Website">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1e90ff">
     <link rel="stylesheet" href="dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-  /* Add some basic styling */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    margin-right: 2.4rem;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    color: rgb(2, 2, 32);
-  }
-  
-  .dropdown-content a:hover {
-    background-color: rgb(2, 2, 32);
-    color: whitesmoke;
-  }
-  
-  .show {
-    display: block;
-  }
+  .menu-btn {
+            position: fixed;
+            top: 27px;
+            right: 20px;
+            z-index: 1001;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            font-size: 15px;
+            letter-spacing: 0.09rem;
+        }
 
-  .dropbtn{
-      padding: 0.5rem 1rem;
-      background-color: rgb(2, 2, 32);
-      color: whitesmoke;
-      border-style: none;
-  }
+        /* Sliding Menu */
+        .top-menu {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.782);
+            padding-top: 60px;
+            transition: 0.3s;
+            z-index: 1000;
+            
+        }
 
+        .top-menu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 15px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+            
+        }
+
+        .top-menu a:hover {
+            background-color: #575757;
+        }
+
+        /* Overlay for background when menu is open */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        /* Show menu and overlay */
+        .top-menu.active {
+            top: 0;
+        }
+
+        .overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
   </style>
 </head>
 <body>
@@ -61,7 +89,7 @@
      BTWwestflightexpress
 </div>
 
-<div class="dropdown">
+<!-- <div class="dropdown">
 <button onclick="toggleDropdown()" class="dropbtn">Menu</button>
 <div id="myDropdown" class="dropdown-content">
 <a href="index.html">Home</a>
@@ -69,31 +97,41 @@
 <a href="quote.html">Retrieve</a>
 <a href="update.html">Update</a>
 </div>
+</div> -->
+<span class="menu-btn">&#9776; Menu</span>
+
+<!-- Sliding Menu -->
+<div class="top-menu" id="topMenu">
+   
+    <a href="quote.html">Track</a>
+    <a href="freight-details.html">Generate</a>
+<a href="quote.html">Retrieve</a>
+<a href="update.html">Update</a>
+    <a href="index.html">Home</a>
 </div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+    </div>
 </div>
 
 <script>
-function toggleDropdown() {
-var dropdown = document.getElementById("myDropdown");
-if (dropdown.style.display === "block") {
-dropdown.style.display = "none";
-} else {
-dropdown.style.display = "block";
-}
-}
+const menuBtn = document.querySelector('.menu-btn');
+        const topMenu = document.getElementById('topMenu');
+        const overlay = document.getElementById('overlay');
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-if (!event.target.matches('.dropbtn')) {
-var dropdowns = document.getElementsByClassName("dropdown-content");
-for (var i = 0; i < dropdowns.length; i++) {
-var openDropdown = dropdowns[i];
-if (openDropdown.style.display === "block") {
-openDropdown.style.display = "none";
-}
-}
-}
-}
+        // Toggle Menu and Overlay
+        menuBtn.addEventListener('click', () => {
+            topMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close Menu when clicking outside
+        overlay.addEventListener('click', () => {
+            topMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
 </script>
 </header>
     <div class="layer1">
@@ -107,12 +145,12 @@ openDropdown.style.display = "none";
         <p>Latest Quote :</p>
         <h3>My package</h3>
         <div class="buttons">
-          <button><a href="freight-details.html">Generate</a></button>
-          <button><a href="quote.html">Retrieve</a></button>
-          <button><a href="update.html">Update</a></button>
+          <button class="glow-button"><a href="freight-details.html">Generate</a></button><br>
+          <button class="glow-button"><a href="quote.html">Retrieve</a></button><br>
+          <button class="glow-button"><a href="update.html">Update</a></button>
         </div>
       </div>
-    </div><br><br>
+    </div><br><br><br>
   <div class="midlayer">
     <div class="midtext">
     <h2>Welcome to your shipping dashboard!</h2> <br>
