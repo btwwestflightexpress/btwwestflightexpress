@@ -160,20 +160,12 @@
   }
   
   .form h2{
-    color: #c9c2f8;
-    background-color: rgb(2, 2, 32);
+    color:rgb(22, 0, 83);
+    background-color: rgb(255, 255, 255);
     text-align: center;
     border-radius: 2px;
   }
   
-  /* .form button{
-    padding: 0.5rem;
-    letter-spacing: 0.2rem;
-    margin: 1rem;
-    background-color: rgb(2, 2, 32);
-    color: #c9c2f8;
-    border-radius: 0.3rem;
-  } */
   
   .form button a{
     text-decoration: none;
