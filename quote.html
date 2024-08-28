@@ -210,32 +210,41 @@ const menuBtn = document.querySelector('.menu-btn');
               <p><strong>Longitude:</strong>  ${quote.longitude}</p>
               
             `;
-            const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 6);
+              // Initialize the map
+        const mymap = L.map('map').setView([parseFloat(quote.latitude), parseFloat(quote.longitude)], 6);
 
-// Adding the red glowing dot to the map
-const glowingDot = L.divIcon({
-    className: 'glowing-dot', // Reference to the custom CSS class for the red dot
-    iconSize: [20, 20],        // Size of the dot
-    iconAnchor: [10, 10]       // Position of the anchor (center the dot on the location)
-});
-
-// Adding the marker to the map with the glowing dot icon
-L.marker([parseFloat(quote.latitude), parseFloat(quote.longitude)], { icon: glowingDot }).addTo(mymap);
-
-// Load the tile layer (standard OpenStreetMap tile layer)
+// Add the tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
+  attribution: '© OpenStreetMap contributors'
 }).addTo(mymap);
 
-      function updateMap(newLatitude, newLongitude) {
-                // Update the map with new latitude and longitude
-                mymap.setView([newLatitude, newLongitude], 6);
-                L.marker([newLatitude, newLongitude])
-                    .addTo(mymap)
-                    .bindPopup('Freight current Location')
-                    .openPopup();
-            }
-    });
+// Define custom glowing dot CSS
+const glowingDot = L.divIcon({
+  className: 'glowing-dot',  // This is the custom CSS class
+  iconSize: [20, 20],        // Size of the glowing dot
+  iconAnchor: [10, 10]       // Position the dot at the center of the marker
+});
+
+// Add the glowing dot to the map
+L.marker([parseFloat(quote.latitude), parseFloat(quote.longitude)], { icon: glowingDot }).addTo(mymap);
+} else {
+// Show an error message
+quoteDetails.innerHTML = `<p>Error: ${data.message}</p>`;
+}
+})
+.catch(error => {
+quoteDetails.innerHTML = `<p>Error: ${error.message}</p>`;
+});
+});
+
+function updateMap(newLatitude, newLongitude) {
+// Recenter the map and add a new glowing dot marker
+mymap.setView([newLatitude, newLongitude], 6);
+
+// Add new glowing dot at the updated location
+L.marker([newLatitude, newLongitude], { icon: glowingDot }).addTo(mymap);
+}
+});
 
 
 
