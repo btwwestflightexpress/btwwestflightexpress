@@ -6,7 +6,7 @@
   }
   
   body{
-    background-color: rgb(22, 0, 83);
+    background: linear-gradient(to bottom, #FFFAF0, #F1F1F1);
     font-family: "poppins" sans-serif;
   }
   
@@ -279,4 +279,70 @@
   100% {
       box-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.5), 0 0 15px rgba(255, 0, 0, 0.3);
   }
+}
+
+
+
+ /* Falling snowflakes */
+ .snowflake {
+    position: absolute;
+    top: -10px;
+    color: #fff;
+    font-size: 20px;
+    user-select: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.2;
+    }
+}
+
+/* Snowflake animation delay and speed */
+.snowflake:nth-child(odd) {
+    animation-duration: 10s;
+    animation-delay: 0s;
+}
+
+.snowflake:nth-child(even) {
+    animation-duration: 8s;
+    animation-delay: 3s;
+}
+
+/* Header with Christmas colors */
+h1, h2, h4 {
+    color: #FF0000; /* Christmas red */
+    text-shadow: 2px 2px 5px #008000; /* Christmas green shadow */
+    font-family: 'Pacifico', cursive;
+}
+
+/* Christmas tree icon */
+.tree {
+    color: #008000;
+    font-size: 50px;
+    text-shadow: 0 0 10px #FFD700; /* Gold glow */
+}
+
+/* Button style for interaction */
+.christmas-button {
+    background: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.christmas-button:hover {
+    transform: scale(1.1);
+    background: #008000;
 }
