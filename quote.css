@@ -346,3 +346,7 @@ h1, h2, h4 {
     transform: scale(1.1);
     background: #008000;
 }
+
+canvas {
+  display: block;
+} 

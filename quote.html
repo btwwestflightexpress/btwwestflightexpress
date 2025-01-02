@@ -134,9 +134,9 @@ const menuBtn = document.querySelector('.menu-btn');
   <h2>Track freight</h2>
   <br><br>
   <div style="margin-left: 1rem;">
-    <h4>Merry Christmas!</h4>
-    <h4>Let the festivities begin 🎅</h4>
-    <div class="tree">🎄</div>
+    <h4>Happy new year!</h4>
+    <h4>We welcome you into 2025! 🎆</h4>
+    <div class="tree">🎆</div>
     <!-- <button class="christmas-button">Celebrate Now</button> -->
 
     <!-- Snowflakes -->
@@ -153,6 +153,7 @@ const menuBtn = document.querySelector('.menu-btn');
         <br>
     </div>
     <h1>Track</h1>
+    
   <form id="retrieve-form">
     
     <input type="text" id="tracking_code" name="tracking_code" placeholder="TRACKING CODE">
@@ -164,11 +165,13 @@ const menuBtn = document.querySelector('.menu-btn');
 
     <button class="glow-button" type="submit">Retrieve Quote</button>
   </form>
+  
 </div>
 <div class="form">
   <div id="quote-details">
     <!-- Quote details will be displayed here -->
   </div>
+  <canvas id="fireworksCanvas"></canvas>
 </div>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <div id="map" style="height: 400px;"></div>
@@ -269,6 +272,81 @@ L.marker([newLatitude, newLongitude], { icon: glowingDot }).addTo(mymap);
         document.getElementById('welcome-card').style.display = 'none';
     });
 });
+
+
+
+const canvas = document.getElementById('fireworksCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Firework {
+            constructor(x, y, colors) {
+                this.x = x;
+                this.y = y;
+                this.colors = colors;
+                this.particles = [];
+                this.createParticles();
+            }
+
+            createParticles() {
+                for (let i = 0; i < 100; i++) {
+                    const angle = Math.random() * 2 * Math.PI;
+                    const speed = Math.random() * 3 + 1;
+                    const vx = Math.cos(angle) * speed;
+                    const vy = Math.sin(angle) * speed;
+                    const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+                    this.particles.push({ x: this.x, y: this.y, vx, vy, alpha: 1, color });
+                }
+            }
+
+            update() {
+                this.particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.alpha -= 0.01;
+                });
+                this.particles = this.particles.filter(p => p.alpha > 0);
+            }
+
+            draw(ctx) {
+                this.particles.forEach(p => {
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }
+        }
+
+        const fireworks = [];
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#FFFF33', '#FF33A8'];
+
+        function addFirework() {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height / 2;
+            fireworks.push(new Firework(x, y, colors));
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            fireworks.forEach((firework, index) => {
+                firework.update();
+                firework.draw(ctx);
+                if (firework.particles.length === 0) fireworks.splice(index, 1);
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        setInterval(addFirework, 500);
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
   </script>
 
 </body>
