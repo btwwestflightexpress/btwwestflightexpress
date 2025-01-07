@@ -1,72 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Unavailable</title>
+    <meta name="google-adsense-account" content="ca-pub-3141165412707834">
+    <title>BTWwestflightexpress</title>
+    <meta name="theme-color" content="#1e90ff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Your Website">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1e90ff">
+    <link rel="stylesheet" href="shipping.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #30334B, #1d2da1, #25b4d8);
-            color: #ffffff;
-            text-align: center;
+        .menu-btn {
+            position: fixed;
+            top: 27px;
+            right: 20px;
+            z-index: 1001;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            font-size: 15px;
+            letter-spacing: 0.09rem;
         }
 
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        /* Sliding Menu */
+        .top-menu {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.782);
+            padding-top: 60px;
+            transition: 0.3s;
+            z-index: 1000;
+            
         }
 
-        .container h1 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .container p {
-            font-size: 14px;
-            margin: 0 0 20px;
-            line-height: 1.5;
-        }
-
-        .container .contact {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #1E88E5;
-            color: #fff;
-            font-weight: bold;
+        .top-menu a {
+            padding: 10px 15px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            font-size: 15px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+            
         }
 
-        .container .contact:hover {
-            background: #1565C0;
+        .top-menu a:hover {
+            background-color: #575757;
         }
 
-        .footer {
-            font-size: 0.8rem;
-            margin-top: 10px;
-            opacity: 0.7;
+        /* Overlay for background when menu is open */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 999;
         }
+
+        /* Show menu and overlay */
+        .top-menu.active {
+            top: 0;
+        }
+
+        .overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Service Unavailable</h1>
-        <p>
-            This website is temporarily unavailable as the hosting plan has expired. 
-            If you are the website owner, please renew your hosting plan to restore access.
-        </p>
-        <a href="mailto:support@hostinger.com" class="contact">Contact Support</a>
-        <div class="footer">© 2025 Hostinger.com</div>
+
+    <header>
+        <!-- end of sub-header -->
+        <div class="nav-bar">
+             <div class="logo">
+                <div class="first-logo"><img src="./shipping css/images/logobt.jpg" alt="" style="width: 3rem; border-radius: 20rem;"></div><br>
+                BTWwestflightexpress
+            </div>
+            <span class="menu-btn">&#9776; Menu</span>
+
+    <!-- Sliding Menu -->
+    <div class="top-menu" id="topMenu">
+       
+        <a href="quote.html">Track</a>
+                    <a href="login-page.html">Sign in</a>
+                    <a href="index.html">Our services</a>
+        <a href="#">Contact</a>
     </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+        </div>
+
+    </header>
+    <!-- End of header -->
+    <div class="first-container">
+        <img src="https://github.com/btwwestflightexpress/btwwestflightexpress/blob/main/shipping%20css/images/worldmap.png?raw=true" alt=""
+            style="width: 100%; padding: 0; height: 23rem; background-color: rgb(22, 0, 83); margin-top: 3.5rem; margin-bottom: -13rem;">
+        <p>
+        <h2 class="text1">Leaders of Innovation <br> Masters in craft when <br> it comes to Logistics <br>
+            <p style="color: #F06868; font-size: 17px;">Your patner in <br> shipping success</p><br>
+            
+                    <button class="glow-button"><a
+                        href="quote.html" style="text-decoration: none;">Track freight</a></button>
+        </h2>
+        </p>
+
+    </div>
+    <!--end of first-container-->
+
+
+    </div>
+    <div class="earth-container">
+        <div class="earth"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb7Uayrt8D3uYIJW5ImWbBJQYw2UTCX0ScHg&s" alt=""></div>
+    </div>
+    
+
+    <!-- end of first-breach -->
+    <div class="our-services" style="color: #F06868;">
+        Our Services
+    </div>
+    <div class="second-container">
+        <!-- <img src="./shipping css/images/pngfind.com-grua-png-4234790.png" alt="" style="width: 100%; height: 13rem;"> -->
+        <div class="tabs1" id="myCard">
+            <div class="tab-quick"><br>
+                <p class="first-text">Quick Quotes</p>
+                <img src="./shipping css/images/Sport Stopwatch.png" alt="">
+                <p class="second-text">
+                    Take advantage of our <br>Quick Quote generating system <br>No Re-captcha stress, No registrations
+                    <br> required
+                </p>
+
+            </div>
+
+            <div class="tab-quick">
+                <p class="first-text">Fast Delivery</p>
+                <img src="./shipping css/images/Fast Cart.png" alt="">
+                <p class="second-text">
+                    Our customers are at luck <br> Experince quick freight shipping that <br> encloses and enroutes
+                    round the globe
+                </p>
+            </div>
+
+            <div class="tab-quick">
+                <p class="first-text">24/7 customer care</p>
+                <img src="./shipping css/images/customer-support-svgrepo-com.svg" alt="">
+                <p class="second-text">
+                    Customer-Centric: Your satisfaction is our top priority. Our customer support team is always ready
+                    to assist you and answer any questions you may have.
+                </p>
+            </div>
+
+            <div class="tab-quick">
+                <p class="first-text">Flexibility and Efficiency</p>
+                <img src="./shipping css/images/Administrative Tools.png" alt="">
+                <p class="second-text">
+                    Personally mordify your quotes and<br> more options options to pick from. <br>Choose container
+                    type(s) and <br>goods to set visible fom your <br>freight
+                </p>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="tabs2">
+            <!-- <a href='https://dryicons.com/free-icons/customer-service'> Icon by Dryicons </a>
+            <img src="./shipping css/images/customer care.svg" alt="" style="width: 3rem; position: fixed;"> -->
+            <div class="tab-quick">
+                <p class="first-text">Global Reach</p>
+                <img src="./shipping css/images/Around the Globe.png" alt="">
+                <p class="second-text">
+                    Take advantage of our <br>Quick Quote generating system <br>No Re-captcha stress, No registrations
+                    <br> required
+                </p>
+            </div>
+            <!-- <hr style="color: rgb(227, 227, 227);"> -->
+            <div class="sub-container">
+                <div class="dub-container-text">
+                    <h2>Welcome to <div class="logo" style="font-size: 1.5rem;">
+                            <div class="first-logo">BTW</div>
+                            westflightexpress
+                        </div>
+                    </h2> <br> Your Fast and Reliable Shipping Partner!At BTWwestflight Express, we're dedicated <br> to
+                    delivering excellence in shipping services. With a focus on speed, security, <br>and customer
+                    satisfaction, we're your trusted choice for all your shipping needs. <br> Whether you're sending
+                    parcels across town or shipping worldwide, we've got you covered. <br> Our commitment is to make
+                    sure your packages arrive safely and on time, every time. <br> <br>
+                    <p style="color: #F06868; text-align: center;">Why Choose BTWwestflight Express?-</p>
+                    <br>
+                    <ul>
+                        <li>Swift and Efficient Delivery</li>
+                        <li>Competitive Rates</li>
+                        <li>Global Reach</li>
+                        <li>24/7 Customer Support</li>
+                    </ul>
+
+                    <br>Experience hassle-free shipping with BTWwestflight Express Your Partner in Shipping Success!"
+                </div> <br>
+                <a href="login-page.html"><button
+                    class="glow-button">Track
+                        freight</button></a>
+            </div>
+            <script>
+                // JavaScript to trigger the reveal effect when card is in view
+                window.addEventListener('scroll', function () {
+                    var card = document.getElementById("myCard");
+                    var rect = card.getBoundingClientRect();
+
+                    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                        card.style.opacity = 1;
+                    }
+                });
+
+            </script>
+        </div>
+    </div>
+    <!--end of second container-->
+    <br><br><br><br>
+    <div class="breach" style="background-color: rgb(22, 0, 83); padding: 1rem 1rem;">
+        <div class="logo">
+            <div class="first-logo">BTW</div>
+            westflightexpress
+
+            <div class="service-agents" style="color: #F06868; font-size: 15px;font-weight: 400;">Service Agents</div>
+        </div>
+        <div class="third-container">
+            <div class="first-sub-container">
+                <p class="top">Top Agents</p>
+                <div class="note">
+                    <h4 style="color: #F06868;">NOTE |</h4>Freight shipping rates are dependent on company rates <br>
+                    and shipping tax rate
+                </div>
+            </div><br>
+
+            <div class="tabs">
+                <div class="tab1">
+                    <img src="./shipping css/images/Abstract(1).png" alt=""
+                        style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
+                    <div class="tab-text" style="color: rgb(2, 2, 32);">
+                        <p class="agent-name">Lee-Man Logistics and enterprise</p>
+                        <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: ;">
+                            Proffessional 2041 Wholesale supplier from <br> China <br><br>
+                            <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.5 = 2.0kg</p>
+                            <br>
+                            <em>Looking for a fast and less congested route and agents, your should take advantage
+                                of.... </em>
+                            <div ><a href="login-page.html"><button class="glow-button2"
+                                        onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+                <br>
+
+                <div class="tab1">
+                    <img src="./shipping css/images/Nature.png" alt=""
+                        style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
+                    <div class="tab-text">
+                        <p class="agent-name">Azzort enterprise</p>
+                        <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32);">
+                            Proffessional 2041 Wholesale supplier from <br> Africa <br><br>
+                            <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.2 = 2.0kg</p>
+                            <br>
+                            <em>We deliver to all parts of the world. Our customers are safety insured.... </em>
+                            <div><a href="login-page.html"><button class="glow-button2"
+                                        onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="tab1">
+                    <img src="./shipping css/images/Transport.png" alt=""
+                        style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
+                    <div class="tab-text">
+                        <p class="agent-name">Kimberlay and sons Logistics</p>
+                        <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32);">
+                            Proffessional 2041 Wholesale supplier from <br> England <br><br>
+                            <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.7 = 2.0kg</p>
+                            <br>
+                            <em>Kimberlay and sons, founded in the early 80s is known for its vasatility,
+                                 </em>
+                            <div ><a href="login-page.html"><button class="glow-button2"
+                                        onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="tabs">
+                <div class="tab1">
+                    <img src="./shipping css/images/harbor.jpg" alt=""
+                        style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
+                    <div class="tab-text">
+                        <p class="agent-name">Wavexpress</p>
+                        <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32); ">
+                            Proffessional 2041 Wholesale supplier from <br> USA <br><br>
+                            <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 1.5 = 2.0kg</p>
+                            <br>
+                            <em>Looking for a fast and less congested route and agents, your should take advantage
+                                of.... </em>
+                            <div><a href="login-page.html"><button class="glow-button2"
+                                        onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+                <br>
+                <div class="tab1">
+                    <img src="./shipping css/images/Abstract.png" alt=""
+                        style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
+                    <div class="tab-text">
+                        <p class="agent-name">Miguel.A and sons enterprise</p>
+                        <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32);">
+                            Proffessional 2041 Wholesale supplier from <br> Mexico <br><br>
+                            <p style="-weight: bold; color: rgb(2, 2, 32);">US $ - 3.2 = 3.0kg</p>
+                            <br>
+                            <em>Take your shipping experience to the next level. Work with our international port
+                                 </em>
+                            <div ><a href="login-page.html"><button class="glow-button2"
+                                        onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="tab1">
+                    <img src="./shipping css/images/Transport (1).png" alt=""
+                        style="border-top-left-radius: 15px; border-top-right-radius: 15px; width: 100%;">
+                    <div class="tab-text">
+                        <p class="agent-name">Del-Mcgregor Logistics and Enterprise</p>
+                        <div class="text" style="padding-top: 1rem; padding-bottom: 1rem; color: rgb(2, 2, 32);">
+                            Proffessional 2041 Wholesale supplier from <br> Australia <br><br>
+                            <p style=" font-weight: bold; color: rgb(2, 2, 32);">US $ - 3.00 = 2.0kg</p>
+                            <br>
+                            <em>Looking for a fast and less congested route and agents, your should take advantage
+                                of.... </em>
+                            <div ><a href="login-page.html"><button class="glow-button2"
+                                        onclick="alert('Create User Account first!')">Contact Agent</button></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay">
+                <p>We are cover a huge cut of the globe <br>Your patner when you speak "Logistics"</p>
+                <img src="./shipping css/images/pngfind.com-grua-png-4234790.png" alt="" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="fourth-container"
+            style="background-image: url('./shipping css/images/harbor.jpg'); filter: grayscale(); background-size: cover; background-position: center;">
+            <div class="know">
+                <p>Know us more</p>
+                <h2>About us</h2>
+            </div>
+
+            <div class="first-about">
+                <video src="./shipping css/images/VideoEditor_20231030_090711.mp4" class="video" muted autoplay></video>
+
+
+            </div>
+
+        </div>
+        <div class="first-about-text">
+            <h2>BTWWestFlight Express</h2>
+            <br>
+            <div class="tabs12" id="myCard" style="background-color: #6857eb; border-radius: 5px;">
+                <div class="tab-quick2" style="border-top-right-radius: 100rem;">
+                    At BTWWestFlight Express, we are dedicated to making your shipping experience seamless, reliable,
+                    and efficient. With a commitment to excellence and a passion for delivering your packages and goods,
+                    we've become a trusted partner for all your shipping needs.
+                </div>
+            </div>
+            <br><br>
+            <h2>Our Mission</h2>
+        </div>
+        <div class="any">
+            <img src="./shipping css/images/pngfind.com-outsourcing-png-5639831.png" alt="" style="">
+        </div>
+        <div class="first-about-text">
+            Our mission is simple: to provide fast, secure, and cost-effective shipping solutions while ensuring the
+            highest level of customer satisfaction. We understand the importance of timely deliveries and the trust you
+            place in us to get your shipments to their destination, no matter how near or far. <br><br>
+            <h2> Why Choose Us?</h2>
+            <br>
+            <div class="tabs12" id="myCard">
+                <div class="tab-quick2">
+                    <img src="./shipping css/images/fast-delivery-truck-svgrepo-com.svg" alt=""><br><br>
+                    <h3>Swift Deliveries</h3>
+                    We pride ourselves on our ability to move your packages quickly and efficiently. Our dedicated team
+                    ensures that your shipments reach their destination in the shortest time possible.
+                </div>
+            </div>
+            <br><br>
+            <div class="tabs12" id="myCard">
+                <div class="tab-quick2">
+                    <img src="./shipping css/images/quality-4-svgrepo-com.svg" alt=""><br><br>
+                    <h3>Reliability</h3>
+                    You can count on us to handle your packages with care and ensure they arrive in the same condition
+                    as when they were sent.
+                </div>
+            </div>
+            <br><br>
+            <div class="tabs12" id="myCard">
+                <div class="tab-quick2">
+                    <img src="./shipping css/images/discount-circle-svgrepo-com.svg" alt=""><br><br>
+                    <h3>Affordable Pricing</h3>
+                    We believe that quality shipping services should be accessible to everyone. Our competitive rates
+                    make it easy for you to send your shipments without breaking the bank.
+                </div>
+            </div>
+            <br><br>
+            <div class="tabs12" id="myCard">
+                <div class="tab-quick2">
+                    <img src="./shipping css/images/global-reach-international-global-representative-svgrepo-com.svg"
+                        alt=""><br><br>
+                    <h3>Global Reach</h3>
+                    Whether you're shipping domestically or internationally, we have the network and resources to reach
+                    destinations worldwide.
+                </div>
+            </div>
+            <br><br>
+            <div class="tabs12" id="myCard">
+                <div class="tab-quick2">
+                    <img src="./shipping css/images/customer-support-svgrepo-com.svg" alt=""><br><br>
+                    <h3>Customer-Centric</h3>
+                    Your satisfaction is our top priority. Our customer support team is always ready to assist you and
+                    answer any questions you may have.
+                </div>
+            </div>
+
+
+        </div><br><br>
+        <div class="fourth-tabs">
+            <div class="fourth-tab1">
+                <img src="./shipping css/images/Cruise Ship.png" alt="">
+                <div class="fourth-tab-text">
+                    Freight movement through the ocean is <br> cinsidered a popular choice to deal <br> with flexible
+                    arrivals <br>due to the ability of ships passing <br> through international waters. <br> its also a
+                    popular lower cost means
+                </div>
+            </div>
+
+            <div class="fourth-tab1">
+                <img src="./shipping css/images/Airport.png" alt="">
+                <div class="fourth-tab-text">
+                    Freight transport by air remains the fastest means by which we serve our customers. th considered
+                    more expensive than the rest. But do not bother, our discount rates got you covered
+                </div>
+            </div>
+        </div>
+        <div class="fourth-tabs">
+            <div class="fourth-tab1">
+                <img src="./shipping css/images/Subway.png" alt="">
+                <div class="fourth-tab-text">
+                    Yet another safe mode of transportation. Our customers choose to say that our rail transport system
+                    is he safest delivery means on land. We do not capitalize on imagination, We make it a reality
+                </div>
+            </div>
+
+            <div class="fourth-tab1">
+                <img src="./shipping css/images/Truck.png" alt="">
+                <div class="fourth-tab-text">
+                    We have both long and short distance traveling land vehicles. We ensure that your goods get to your
+                    desired location as quick as possible.
+                </div>
+            </div>
+        </div>
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("fourth-tab1");
+
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                slides[slideIndex - 1].style.display = "block";
+            }
+
+            // Automatic slideshow
+            var slideInterval = 2000; // Change slide every 2 seconds
+            var slideTimer;
+
+            function startSlideshow() {
+                slideTimer = setInterval(function () {
+                    plusSlides(1);
+                }, slideInterval);
+            }
+
+            startSlideshow(); // Start the slideshow when the page loads
+        </script>
+
+
+
+        <div class="comment-section">
+            <div class="customer">Customer Remarks</div><br>
+            <div class="comments">
+                <img src="./shipping css/images/User.png" alt="User icon">
+                <p class="comment-text">
+                    No much talks, just leave the credits to them. <br>
+                    They are the best in the west.. lol
+                </p>
+                <br>
+                <img src="./shipping css/images/Facebook Like Skin Type 4.png" alt="" style="padding: 0rem 1rem;"><img
+                    src="./shipping css/images/Thumbs Down.png" alt="" style="padding: 0rem 1rem;">
+            </div>
+
+            <div class="comments" ">
+            <img src=" ./shipping css/images/User.png" alt="User icon">
+                <p class="comment-text">
+                    At first i was insecure and uncomfortable. i was unsure if my goods <br> wher to arrive in good
+                    shape cuz i switched from using my <br> previous logistics company.. but as i didnt really expect,
+                    my goods arrived safely <br> and even earlier than expected.
+                </p><br>
+                <img src="./shipping css/images/Facebook Like Skin Type 4.png" alt="" style="padding: 0rem 1rem;"><img
+                    src="./shipping css/images/Thumbs Down.png" alt="" style="padding: 0rem 1rem;">
+            </div>
+
+            <div class="comments">
+                <img src="./shipping css/images/User.png" alt="">
+                <p class="comment-text">
+                    Every thing goes perfectly but the mind blowing part is that <br>this company has a well
+                    calibratedGPS system tht tracks your goods REAL TIME <br> mind blown......
+                </p><br>
+                <img src="./shipping css/images/Facebook Like Skin Type 4.png" alt="" style="padding: 0rem 1rem;"><img
+                    src="./shipping css/images/Thumbs Down.png" alt="" style="padding: 0rem 1rem;">
+            </div>
+
+            <div class="comments">
+                <img src="./shipping css/images/User.png" alt="User icon">
+                <p class="comment-text">
+                    The best iv patronised so far. i was able to get my properties from my current <br> location over
+                    the seas to my family at australia. they actually confirmed <br> arrival of my properties way
+                    earlier than i expected <br>
+                    you guys are good.
+                </p><br>
+                <img src="./shipping css/images/Facebook Like Skin Type 4.png" alt="" style="padding: 0rem 1rem;"><img
+                    src="./shipping css/images/Thumbs Down.png" alt="" style="padding: 0rem 1rem;">
+            </div>
+
+            <div class="comments">
+                <img src="" alt="">
+                <p class="comment-text">
+                    Nothing shakes me up than the GPS system. You guys have my respects.
+                </p><br>
+                <img src="./shipping css/images/Facebook Like Skin Type 4.png" alt="" style="padding: 0rem 1rem;"><img
+                    src="./shipping css/images/Thumbs Down.png" alt="" style="padding: 0rem 1rem;">
+            </div>
+
+            <div class="comments">
+                <img src="./shipping css/images/User.png" alt="User icon">
+                <p class="comment-text">
+                    أستطيع فقط قول شكراً لأنك أثبتت جديراً بالثقة
+                </p><br>
+                <img src="./shipping css/images/Facebook Like Skin Type 4.png" alt="" style="padding: 0rem 1rem;"><img
+                    src="./shipping css/images/Thumbs Down.png" alt="" style="padding: 0rem 1rem;">
+            </div>
+        </div>
+        <div class="write-comment">
+            <div class="write-comments-back">
+                <p style="color: white;">Welcome to the BTWwestflight Community!</p>
+                <div
+                    style="color: #b5b0dd; text-align: left; letter-spacing: 0.1rem; padding: 1rem; line-height: 2rem;">
+                    We value your feedback and insights, and our comment section is the perfect place to share your <br>
+                    thoughts and experiences with our shipping and logistics services. <br> Whether you've recently used
+                    our services for international shipping, air freight, sea freight, or any other logistics needs, we
+                    want to hear from you. <br><br> Feel free to leave comments, reviews, suggestions, or questions
+                    about your BTWwestflight experience. <br> Our team is committed to providing reliable, efficient,
+                    and cost-effective logistics solutions, <br> and your input helps us improve and serve you better.
+                    <br> Please keep in mind our community guidelines: <br>
+                    <ul style="padding: 2rem; list-style: none;">
+                        <li>Be respectful and constructive in your comments</li>
+                        <li>Avoid sharing sensitive or personal information</li>
+                        <li>Help fellow users by sharing valuable insights and tips</li>
+                    </ul>
+                    Thank you for being a part of the BTWwestflight community. <br>
+                    <br><br>
+                    <p>Share your thoughts</p><br>
+                    <form action="">
+                        <input type="text" class="text-comment" placeholder="Write comment">
+                        <br><br>
+                        <button type="submit"
+                            style="width: 4rem; color: rgb(2, 2, 32); border-radius: 20px; border-style: none; padding: 0.5rem; font-weight: bold; "
+                            onclick="alert('Thanks for sharing your thoughts! We really appreciate.')">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer1">
+                <p class="footer-header-text">
+                    Partners
+                </p>
+                <p class="footer-regular-text">
+                    <a href="login page.html">westflightexpress</a> <br><br>
+                    <a href="login page.html">S-Prime</a><br><br>
+                    <a href="login page.html">Alliance</a><br><br>
+                    <a href="login page.html">APTtude</a>
+                </p>
+            </div>
+
+            <div class="footer1">
+                <p class="footer-header-text">
+                    Freight Transports
+                </p>
+                <p class="footer-regular-text">
+                    <a href="login page.html">westflightexpress</a> <br><br>
+                    <a href="login page.html">Air Freights</a><br><br>
+                    <a href="login page.html">Land Freights</a><br><br>
+                    <a href="login page.html">Sea Freights</a>
+                </p>
+            </div>
+
+            <div class="footer1">
+                <p class="footer-header-text">
+                    About us
+                </p>
+                <p class="footer-regular-text">
+                    <a href="login page.html">Company partners</a> <br><br>
+                    <a href="login page.html">Staff</a><br><br>
+                    <a href="login page.html">Our goal</a><br><br>
+                    <a href="login page.html">conduct</a>
+                </p>
+            </div>
+
+            <div class="footer1" style="letter-spacing: 0.3rem; color: #F06868;">
+                2002 copyrights (All rights reserved)
+            </div>
+        </footer>
+        <script>
+            const menuBtn = document.querySelector('.menu-btn');
+        const topMenu = document.getElementById('topMenu');
+        const overlay = document.getElementById('overlay');
+
+        // Toggle Menu and Overlay
+        menuBtn.addEventListener('click', () => {
+            topMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close Menu when clicking outside
+        overlay.addEventListener('click', () => {
+            topMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        </script>
+        
+        <!-- <script src="//code.tidio.co/c3u6inqchllvaycdalhg5sqldo6ayjan.js" async></script> -->
 </body>
+
 </html>
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information
