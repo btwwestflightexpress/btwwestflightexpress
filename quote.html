@@ -133,17 +133,7 @@ const menuBtn = document.querySelector('.menu-btn');
 
   <h2>Track freight</h2>
   <br><br>
-  <div style="margin-left: 1rem;">
-    <h4>Happy new year!</h4>
-    <h4>We welcome you into 2025! 🎆</h4>
-    <div class="tree">🎆</div>
-    <!-- <button class="christmas-button">Celebrate Now</button> -->
-
-    <!-- Snowflakes -->
-    <div class="snowflake">❄️❄️</div>
-    <div class="snowflake">❄️❄️ ❄️</div>
-    <div class="snowflake">❄️❄️❄️</div>
-  </div>
+  
   
 <div class="form">
     <div id="welcome-card" class="card">
@@ -206,21 +196,19 @@ const menuBtn = document.querySelector('.menu-btn');
               <br>
               <p><strong>Sender's Name:</strong> ${quote.senders_name}</p>
               <p><strong>Origin:</strong>  ${quote.Origin}</p>
-              <p><strong>Origin State:</strong>  ${quote.origin_state}</p>
-              <p><strong>Origin Zip-code:</strong>  ${quote.origin_zip_code}</p>
+
               <p><strong>Reciever's Name:</strong> ${quote.recievers_name}</p>
               <p><strong>Recievers Phone number:</strong> ${quote.recievers_phone_number}</p>
+
               <p><strong>Reciever's Email:</strong>  ${quote.recievers_email}</p>
               <p><strong>Destination:</strong> ${quote.destination}</p>
-              <p><strong>Destination State:</strong> ${quote.destination_state}</p>
-              <p><strong>Destination Zip-code:</strong> ${quote.destination_zip_code}</p>
-              <p><strong>Package Name:</strong> ${quote.package_name}</p>
+
               <p><strong>Package Type:</strong>  ${quote.package_type}</p>
               <p><strong>Package Weight:</strong> ${quote.package_weight}</p>
-              <p><strong>Package Dimension:</strong> ${quote.package_demension}</p>
-              <p><strong>Package Number:</strong> ${quote.package_number}</p>
+
               <p><strong>Tracking Code:</strong> ${quote.tracking_code}</p>
               <p><strong>Latitude:</strong>  ${quote.latitude}</p>
+
               <p><strong>Longitude:</strong>  ${quote.longitude}</p>
               
             `;
@@ -275,78 +263,78 @@ L.marker([newLatitude, newLongitude], { icon: glowingDot }).addTo(mymap);
 
 
 
-const canvas = document.getElementById('fireworksCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+// const canvas = document.getElementById('fireworksCanvas');
+//         const ctx = canvas.getContext('2d');
+//         canvas.width = window.innerWidth;
+//         canvas.height = window.innerHeight;
 
-        class Firework {
-            constructor(x, y, colors) {
-                this.x = x;
-                this.y = y;
-                this.colors = colors;
-                this.particles = [];
-                this.createParticles();
-            }
+//         class Firework {
+//             constructor(x, y, colors) {
+//                 this.x = x;
+//                 this.y = y;
+//                 this.colors = colors;
+//                 this.particles = [];
+//                 this.createParticles();
+//             }
 
-            createParticles() {
-                for (let i = 0; i < 100; i++) {
-                    const angle = Math.random() * 2 * Math.PI;
-                    const speed = Math.random() * 3 + 1;
-                    const vx = Math.cos(angle) * speed;
-                    const vy = Math.sin(angle) * speed;
-                    const color = this.colors[Math.floor(Math.random() * this.colors.length)];
-                    this.particles.push({ x: this.x, y: this.y, vx, vy, alpha: 1, color });
-                }
-            }
+//             createParticles() {
+//                 for (let i = 0; i < 100; i++) {
+//                     const angle = Math.random() * 2 * Math.PI;
+//                     const speed = Math.random() * 3 + 1;
+//                     const vx = Math.cos(angle) * speed;
+//                     const vy = Math.sin(angle) * speed;
+//                     const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+//                     this.particles.push({ x: this.x, y: this.y, vx, vy, alpha: 1, color });
+//                 }
+//             }
 
-            update() {
-                this.particles.forEach(p => {
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.alpha -= 0.01;
-                });
-                this.particles = this.particles.filter(p => p.alpha > 0);
-            }
+//             update() {
+//                 this.particles.forEach(p => {
+//                     p.x += p.vx;
+//                     p.y += p.vy;
+//                     p.alpha -= 0.01;
+//                 });
+//                 this.particles = this.particles.filter(p => p.alpha > 0);
+//             }
 
-            draw(ctx) {
-                this.particles.forEach(p => {
-                    ctx.globalAlpha = p.alpha;
-                    ctx.fillStyle = p.color;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-                    ctx.fill();
-                });
-            }
-        }
+//             draw(ctx) {
+//                 this.particles.forEach(p => {
+//                     ctx.globalAlpha = p.alpha;
+//                     ctx.fillStyle = p.color;
+//                     ctx.beginPath();
+//                     ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+//                     ctx.fill();
+//                 });
+//             }
+//         }
 
-        const fireworks = [];
-        const colors = ['#FF5733', '#33FF57', '#3357FF', '#FFFF33', '#FF33A8'];
+//         const fireworks = [];
+//         const colors = ['#FF5733', '#33FF57', '#3357FF', '#FFFF33', '#FF33A8'];
 
-        function addFirework() {
-            const x = Math.random() * canvas.width;
-            const y = Math.random() * canvas.height / 2;
-            fireworks.push(new Firework(x, y, colors));
-        }
+//         function addFirework() {
+//             const x = Math.random() * canvas.width;
+//             const y = Math.random() * canvas.height / 2;
+//             fireworks.push(new Firework(x, y, colors));
+//         }
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            fireworks.forEach((firework, index) => {
-                firework.update();
-                firework.draw(ctx);
-                if (firework.particles.length === 0) fireworks.splice(index, 1);
-            });
+//         function animate() {
+//             ctx.clearRect(0, 0, canvas.width, canvas.height);
+//             fireworks.forEach((firework, index) => {
+//                 firework.update();
+//                 firework.draw(ctx);
+//                 if (firework.particles.length === 0) fireworks.splice(index, 1);
+//             });
 
-            requestAnimationFrame(animate);
-        }
+//             requestAnimationFrame(animate);
+//         }
 
-        setInterval(addFirework, 500);
-        animate();
+//         setInterval(addFirework, 500);
+//         animate();
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+//         window.addEventListener('resize', () => {
+//             canvas.width = window.innerWidth;
+//             canvas.height = window.innerHeight;
+//         });
   </script>
 
 </body>

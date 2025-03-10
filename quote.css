@@ -317,8 +317,8 @@
 
 /* Header with Christmas colors */
 h1, h2, h4 {
-    color: #FF0000; /* Christmas red */
-    text-shadow: 2px 2px 5px #008000; /* Christmas green shadow */
+    color: #000000; /* Christmas red */
+     /* Christmas green shadow */
     font-family: 'Pacifico', cursive;
 }
 
