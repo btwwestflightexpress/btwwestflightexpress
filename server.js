@@ -92,47 +92,104 @@ pool.promise().getConnection().then((connection) => {
     return code;
   }
 
+
+
   // Submit Quote
-  app.post('/submit-quote', async (req, res) => {
-    const quoteData = req.body; // Get quote details from the request
+app.post('/submit-quote', async (req, res) => {
+  const quoteData = req.body; // Get quote details from the request
 
-    // Insert the quote details into the database
-    const insertQuery = 'INSERT INTO freight_details (senders_name, Origin, recievers_name, recievers_phone_number, recievers_email, destination, package_type, package_weight, tracking_code, package_password, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  // Insert the quote details into the database
+  const insertQuery = 'INSERT INTO freight_details (senders_name, Origin, recievers_name, recievers_phone_number, recievers_email, destination, package_type, package_weight, tracking_code, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
-    // Generate a unique 10-character tracking code
-    const trackingCode = generateTrackingCode();
+  // Generate a unique 10-character tracking code
+  const trackingCode = generateTrackingCode();
 
-    try {
-      const [result] = await pool.promise().query(insertQuery, [quoteData.senders_name, quoteData.origin, quoteData.recievers_name, quoteData.recievers_phone_number, quoteData.recievers_email, quoteData.destination, quoteData.package_type, quoteData.package_weight, trackingCode, quoteData.package_password, quoteData.latitude, quoteData.longitude]);
-      console.log('Added new quote');
-      res.json({ success: true, trackingCode });
-    } catch (error) {
-      console.error('Error inserting quote:', error);
-      res.json({ success: false, message: 'Failed to submit quote' });
+  try {
+    const [result] = await pool.promise().query(insertQuery, [
+      quoteData.senders_name,
+      quoteData.origin,
+      quoteData.recievers_name,
+      quoteData.recievers_phone_number,
+      quoteData.recievers_email,
+      quoteData.destination,
+      quoteData.package_type,
+      quoteData.package_weight,
+      trackingCode,
+      quoteData.latitude,
+      quoteData.longitude
+    ]);
+    console.log('Added new quote');
+    res.json({ success: true, trackingCode });
+  } catch (error) {
+    console.error('Error inserting quote:', error);
+    res.json({ success: false, message: 'Failed to submit quote' });
+  }
+});
+
+// Retrieve Quote
+app.post('/retrieve-quote', async (req, res) => {
+  const { tracking_code } = req.body; // Only tracking code needed now
+
+  // Query the database to retrieve the quote details
+  const quoteQuery = 'SELECT * FROM freight_details WHERE tracking_code = ?';
+
+  try {
+    const [quoteResults] = await pool.promise().query(quoteQuery, [tracking_code]);
+
+    if (quoteResults.length === 0) {
+      return res.json({ success: false, message: 'Quote not found' });
     }
-  });
 
-  // Retrieve Quote
-  app.post('/retrieve-quote', async (req, res) => {
-    const { tracking_code, package_password } = req.body; // Get tracking code and package_password
+    const quote = quoteResults[0];
+    return res.json({ success: true, quote });
+  } catch (error) {
+    console.error('Error retrieving quote:', error);
+    return res.json({ success: false, message: 'Failed to retrieve quote' });
+  }
+});
 
-    // Query the database to retrieve the quote details
-    const quoteQuery = 'SELECT * FROM freight_details WHERE tracking_code = ? AND package_password = ?';
 
-    try {
-      const [quoteResults] = await pool.promise().query(quoteQuery, [tracking_code, package_password]);
+  // // Submit Quote
+  // app.post('/submit-quote', async (req, res) => {
+  //   const quoteData = req.body; // Get quote details from the request
 
-      if (quoteResults.length === 0) {
-        return res.json({ success: false, message: 'Quote not found or password incorrect' });
-      }
+  //   // Insert the quote details into the database
+  //   const insertQuery = 'INSERT INTO freight_details (senders_name, Origin, recievers_name, recievers_phone_number, recievers_email, destination, package_type, package_weight, tracking_code, package_password, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
-      const quote = quoteResults[0];
-      return res.json({ success: true, quote });
-    } catch (error) {
-      console.error('Error retrieving quote:', error);
-      return res.json({ success: false, message: 'Failed to retrieve quote' });
-    }
-  });
+  //   // Generate a unique 10-character tracking code
+  //   const trackingCode = generateTrackingCode();
+
+  //   try {
+  //     const [result] = await pool.promise().query(insertQuery, [quoteData.senders_name, quoteData.origin, quoteData.recievers_name, quoteData.recievers_phone_number, quoteData.recievers_email, quoteData.destination, quoteData.package_type, quoteData.package_weight, trackingCode, quoteData.package_password, quoteData.latitude, quoteData.longitude]);
+  //     console.log('Added new quote');
+  //     res.json({ success: true, trackingCode });
+  //   } catch (error) {
+  //     console.error('Error inserting quote:', error);
+  //     res.json({ success: false, message: 'Failed to submit quote' });
+  //   }
+  // });
+
+  // // Retrieve Quote
+  // app.post('/retrieve-quote', async (req, res) => {
+  //   const { tracking_code, package_password } = req.body; // Get tracking code and package_password
+
+  //   // Query the database to retrieve the quote details
+  //   const quoteQuery = 'SELECT * FROM freight_details WHERE tracking_code = ? AND package_password = ?';
+
+  //   try {
+  //     const [quoteResults] = await pool.promise().query(quoteQuery, [tracking_code, package_password]);
+
+  //     if (quoteResults.length === 0) {
+  //       return res.json({ success: false, message: 'Quote not found or password incorrect' });
+  //     }
+
+  //     const quote = quoteResults[0];
+  //     return res.json({ success: true, quote });
+  //   } catch (error) {
+  //     console.error('Error retrieving quote:', error);
+  //     return res.json({ success: false, message: 'Failed to retrieve quote' });
+  //   }
+  // });
 
   // Route to display an existing quote for editing
   app.get('/quote/:trackingCode/edit', async (req, res) => {

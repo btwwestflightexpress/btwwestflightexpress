@@ -150,8 +150,9 @@ const menuBtn = document.querySelector('.menu-btn');
     <br>
 
     
-    <input type="password" id="package_password" name="package_password" required placeholder="PACKAGE PASSWORD"> 
-    <br><br><br>
+    <!-- <input type="password" id="package_password" name="package_password" required placeholder="PACKAGE PASSWORD"> 
+    <br> -->
+    <br><br>
 
     <button class="glow-button" type="submit">Retrieve Quote</button>
   </form>
@@ -174,14 +175,14 @@ const menuBtn = document.querySelector('.menu-btn');
         event.preventDefault();
 
         const tracking_code = document.getElementById('tracking_code').value;
-        const package_password = document.getElementById('package_password').value;
+        // const package_password = document.getElementById('package_password').value;
 
         fetch('/retrieve-quote', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ tracking_code, package_password }),
+          body: JSON.stringify({ tracking_code}),
         })
         .then(response => response.json())
         .then(data => {
